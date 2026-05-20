@@ -1,0 +1,95 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "script.js",
+      "id": "script_js"
+    },
+    {
+      "label": "nodes",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "nodes",
+      "id": "portfolio_script_nodes"
+    },
+    {
+      "label": "io",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L2",
+      "community": 0,
+      "norm_label": "io",
+      "id": "portfolio_script_io"
+    },
+    {
+      "label": "blocks",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "blocks",
+      "id": "portfolio_script_blocks"
+    },
+    {
+      "label": "observer",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "observer",
+      "id": "portfolio_script_observer"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "portfolio_script_nodes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "portfolio_script_io"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "portfolio_script_blocks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "portfolio_script_observer"
+    }
+  ],
+  "hyperedges": []
+}

@@ -1,0 +1,41 @@
+{
+  "communities": {
+    "0": [
+      "portfolio_script_blocks",
+      "portfolio_script_io",
+      "portfolio_script_nodes",
+      "portfolio_script_observer",
+      "script_js"
+    ]
+  },
+  "cohesion": {
+    "0": 0.4
+  },
+  "gods": [
+    {
+      "id": "portfolio_script_nodes",
+      "label": "nodes",
+      "degree": 1
+    },
+    {
+      "id": "portfolio_script_io",
+      "label": "io",
+      "degree": 1
+    },
+    {
+      "id": "portfolio_script_blocks",
+      "label": "blocks",
+      "degree": 1
+    },
+    {
+      "id": "portfolio_script_observer",
+      "label": "observer",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
