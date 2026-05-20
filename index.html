@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
   <meta name="description" content="Project Coordinator specializing in complex implementation programs, governance, and delivery leadership." />
+  <meta name="author" content="Chaitanya Kumar Mukkollu" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chaitanya Mukkollu | Project Coordinator Portfolio" />
+  <meta property="og:description" content="Project Coordinator specializing in complex implementation programs, governance, and delivery leadership." />
+  <meta property="og:image" content="assets/headshot.png" />
+  <meta property="og:url" content="https://your-username.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chaitanya Mukkollu | Project Coordinator Portfolio" />
+  <meta name="twitter:description" content="Project Coordinator specializing in complex implementation programs, governance, and delivery leadership." />
+  <meta name="twitter:image" content="assets/headshot.png" />
+  <link rel="canonical" href="https://your-username.github.io/portfolio/" />
+  <link rel="icon" type="image/png" href="assets/headshot.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&display=swap" rel="stylesheet" />
@@ -86,6 +98,33 @@
       color: var(--mc-fg-3);
       background: var(--mc-bg-gradient);
       min-height: 100vh;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -100%;
+      background: #ffffff;
+      color: var(--mc-fg-1);
+      border: 2px solid var(--mc-brand-1);
+      border-radius: var(--mc-radius-sm);
+      padding: 0.6rem 0.9rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 999;
+      transition: top var(--mc-motion-base);
+    }
+
+    .skip-link:focus {
+      top: 0.8rem;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--mc-brand-1);
+      outline-offset: 2px;
+      border-radius: var(--mc-radius-sm);
     }
 
     /* === HEADER === */
@@ -743,8 +782,16 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem 1rem;
+      }
+
       .hero {
         padding-top: 2.25rem;
+      }
+
+      .hero-content {
+        padding-left: 0;
       }
 
       .hero-portrait {
@@ -766,6 +813,8 @@
       .nav {
         gap: 1rem;
         font-size: 0.85rem;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .projects-grid {
@@ -790,12 +839,13 @@
   </style>
 </head>
 <body data-style="midnight">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- === HEADER === -->
 <header>
   <div class="header-content">
     <div class="logo">My Portfolio</div>
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#competencies">Skills</a>
@@ -804,11 +854,12 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-controls">
-      <a href="assets/resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">Resume</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Resume</a>
     </div>
   </div>
 </header>
 
+<main id="main-content">
 <!-- === HERO === -->
 <div class="hero">
   <div class="hero-portrait">
@@ -823,7 +874,7 @@
     <p class="hero-description">I deliver clarity across complex implementation programs through governance rigor, stakeholder cadence, and disciplined UAT-to-hypercare execution. Proven delivery leadership across 4 concurrent programs, 35+ UAT scenarios, and 17+ months of continuous portfolio coverage.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-      <a href="assets/resume.pdf" target="_blank" rel="noreferrer" class="btn btn-secondary">Download Resume</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
     </div>
   </div>
 </div>
@@ -1090,8 +1141,8 @@
       <p>Open to Project Coordinator and PMO delivery opportunities across implementation programs, run-state handovers, and governance build-outs.</p>
       <div class="contact-buttons">
         <a href="mailto:chku871@gmail.com" class="btn-contact">Send Email</a>
-        <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noreferrer" class="btn-contact">LinkedIn</a>
-        <a href="assets/resume.pdf" target="_blank" rel="noreferrer" class="btn-contact">Download Resume</a>
+        <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer" class="btn-contact">LinkedIn</a>
+        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-contact">Download Resume</a>
       </div>
     </div>
   </div>
@@ -1099,8 +1150,9 @@
 
 <!-- === FOOTER === -->
 <footer>
-  <p>Chaitanya Kumar Mukkollu | Project Coordinator | <a href="mailto:chku871@gmail.com">chku871@gmail.com</a> | <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+  <p>Chaitanya Kumar Mukkollu | Project Coordinator | <a href="mailto:chku871@gmail.com">chku871@gmail.com</a> | <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 </footer>
+</main>
 
 </body>
 </html>
