@@ -17,3 +17,20 @@ This is a static portfolio site ready for GitHub Pages.
 - All links are static and relative, so they work on GitHub Pages.
 - Main entrypoint: `index.html`
 - Assets: `assets/`
+
+## Testing
+
+This portfolio includes free automated tests using Playwright.
+
+1. Install dependencies:
+   - `npm install`
+2. Run all tests:
+   - `npm test`
+3. Optional interactive run:
+   - `npm run test:ui`
+
+The suite validates:
+- Format: metadata, semantic structure, headings, and section IDs
+- Visibility: key content visibility across desktop and mobile viewports
+- Readability: baseline typography spacing/sizing and no horizontal overflow
+- Accessibility readability signals: no serious/critical Axe violations
