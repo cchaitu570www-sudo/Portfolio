@@ -205,7 +205,7 @@
 
     /* === HERO === */
     .hero {
-      padding: 5rem 2rem;
+      padding: 3.4rem 2rem 4.2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -227,14 +227,25 @@
       max-width: 900px;
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 3;
+      padding-top: 0;
       padding-left: clamp(130px, 18vw, 250px);
+      text-align: left;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.85;
     }
 
     .hero-portrait {
       position: absolute;
-      top: 1.25rem;
+      top: 0.55rem;
       left: clamp(0.5rem, 1.8vw, 1.5rem);
+      transform: none;
       width: clamp(132px, 16vw, 210px);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
@@ -270,12 +281,28 @@
       color: var(--mc-fg-muted);
       margin-bottom: 1.5rem;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1.5rem;
       flex-wrap: wrap;
       font-family: var(--mc-font-system);
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .hero-cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--mc-brand-30);
+      background: var(--mc-brand-10);
+      color: var(--mc-brand-1);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .dot {
@@ -294,15 +321,15 @@
       margin-bottom: 2.5rem;
       color: var(--mc-fg-3);
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
       line-height: 1.7;
     }
 
     .hero-buttons {
       display: flex;
       gap: 1rem;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
     }
 
@@ -404,6 +431,48 @@
       gap: 2rem;
     }
 
+    #projects .section-title {
+      font-size: 1.85rem;
+    }
+
+    #projects .section-label {
+      opacity: 0.75;
+    }
+
+    .experience-grid.timeline-view {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      position: relative;
+      padding-left: 2.3rem;
+    }
+
+    .experience-grid.timeline-view::before {
+      content: "";
+      position: absolute;
+      left: 0.86rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(180deg, var(--mc-brand-1), var(--mc-brand-2));
+      opacity: 0.4;
+    }
+
+    .experience-grid.timeline-view .experience-card {
+      position: relative;
+    }
+
+    .experience-grid.timeline-view .experience-card::before {
+      content: "";
+      position: absolute;
+      left: -2.05rem;
+      top: 1.25rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 999px;
+      background: var(--mc-brand-gradient);
+      box-shadow: var(--mc-glow-sm);
+    }
+
     .experience-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -414,20 +483,21 @@
       background: var(--mc-surface);
       border: 1px solid var(--mc-border);
       border-radius: var(--mc-radius-lg);
-      padding: 2rem;
+      padding: 2.2rem;
       transition: all var(--mc-motion-base);
+      box-shadow: var(--mc-glow-sm);
     }
 
     .experience-card:hover {
       border-color: var(--mc-brand-1);
-      background: rgba(102,126,234,0.08);
-      box-shadow: var(--mc-glow-sm);
+      background: rgba(102,126,234,0.12);
+      box-shadow: var(--mc-glow-md);
       transform: translateY(-4px);
     }
 
     .experience-role {
       font-family: var(--mc-font-display);
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       color: var(--mc-fg-1);
       margin-bottom: 0.35rem;
       letter-spacing: -0.01em;
@@ -449,11 +519,11 @@
       background: var(--mc-surface);
       border: 1px solid var(--mc-border);
       border-radius: var(--mc-radius-lg);
-      padding: 2.5rem;
+      padding: 1.8rem;
       transition: all var(--mc-motion-base);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(6px);
     }
 
     .project-card::before {
@@ -470,9 +540,9 @@
 
     .project-card:hover {
       border-color: var(--mc-brand-1);
-      background: rgba(255,255,255,0.96);
-      box-shadow: var(--mc-glow-sm);
-      transform: translateY(-6px);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 18px rgba(31,78,140,0.12);
+      transform: translateY(-2px);
     }
 
     .project-card:hover::before {
@@ -497,7 +567,7 @@
 
     .project-title {
       font-family: var(--mc-font-display);
-      font-size: 1.5rem;
+      font-size: 1.28rem;
       font-weight: 600;
       color: var(--mc-fg-1);
       margin: 0.5rem 0 0;
@@ -513,7 +583,7 @@
 
     .project-point {
       margin-bottom: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.6;
       color: var(--mc-fg-3);
     }
@@ -569,8 +639,9 @@
     }
 
     .status-hypercare {
-      background: rgba(255, 193, 7, 0.2);
-      color: #fff176;
+      background: rgba(191, 127, 0, 0.2);
+      color: #7a4a00;
+      border: 1px solid rgba(122, 74, 0, 0.28);
     }
 
     /* === COMPETENCIES === */
@@ -780,6 +851,17 @@
       color: var(--mc-fg-1);
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
       .header-content {
@@ -791,15 +873,28 @@
       }
 
       .hero-content {
+        padding-top: 0;
         padding-left: 0;
+        text-align: center;
       }
 
       .hero-portrait {
         position: relative;
         top: auto;
-        right: auto;
+        left: auto;
+        transform: none;
         margin: 0 auto 1.2rem;
         width: 122px;
+      }
+
+      .hero-meta,
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .hero h1 {
@@ -862,16 +957,18 @@
 <main id="main-content">
 <!-- === HERO === -->
 <div class="hero">
+  <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
   <div class="hero-portrait">
     <img src="assets/headshot.png" alt="Headshot portrait of Chaitanya Mukkollu">
   </div>
-  <div class="hero-content">
-    <h1>Chaitanya Mukkollu</h1>
-    <div class="hero-meta">
-      <span><span class="dot"></span>Available</span>
-      <span>Toronto, ON</span>
-    </div>
-    <p class="hero-description">I deliver clarity across complex implementation programs through governance rigor, stakeholder cadence, and disciplined UAT-to-hypercare execution. Proven delivery leadership across 4 concurrent programs, 35+ UAT scenarios, and 17+ months of continuous portfolio coverage.</p>
+    <div class="hero-content">
+      <h1>Chaitanya Mukkollu</h1>
+      <div class="hero-meta">
+        <span><span class="dot"></span>Available</span>
+        <span>Toronto, ON</span>
+      </div>
+      <div class="hero-cert">PMP Certified Project Management Professional</div>
+      <p class="hero-description">I deliver clarity across complex implementation programs through governance rigor, stakeholder cadence, and disciplined UAT-to-hypercare execution. Proven delivery leadership across 4 concurrent programs, 35+ UAT scenarios, and 17+ months of continuous portfolio coverage.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-secondary">Get in Touch</a>
       <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
@@ -887,7 +984,7 @@
       <h2 class="section-title">Professional Experience</h2>
     </div>
 
-    <div class="experience-grid">
+    <div class="experience-grid timeline-view">
       <div class="experience-card">
         <div class="experience-role">Technical Project Coordinator</div>
         <div class="experience-company">Tech Rangers Consulting Services</div>
@@ -916,13 +1013,13 @@
 <section id="projects">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Featured Work</div>
-      <h2 class="section-title">Delivery Leadership Across Key Programs</h2>
+      <div class="section-label">Selected Program Snapshots</div>
+      <h2 class="section-title">Supporting Project Highlights</h2>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid reveal" id="projects-grid">
       <!-- Project 1 -->
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-header">
           <div>
             <div class="project-company">Northstar Facilities Group</div>
@@ -949,7 +1046,7 @@
       </div>
 
       <!-- Project 2 -->
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-header">
           <div>
             <div class="project-company">MapleLeaf Healthcare Services</div>
@@ -976,7 +1073,7 @@
       </div>
 
       <!-- Project 3 -->
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-header">
           <div>
             <div class="project-company">Aurora Retail Logistics</div>
@@ -1003,7 +1100,7 @@
       </div>
 
       <!-- Project 4 -->
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-header">
           <div>
             <div class="project-company">SummitCare Managed Services</div>
@@ -1044,6 +1141,7 @@
       <div class="competency-group">
         <div class="competency-title">Project Delivery & Coordination</div>
         <ul class="competency-list">
+          <li>PMP-aligned governance and delivery controls</li>
           <li>Project coordination across concurrent workstreams</li>
           <li>Requirements capture and scope alignment</li>
           <li>Milestone, schedule, and action tracking</li>
@@ -1153,6 +1251,79 @@
   <p>Chaitanya Kumar Mukkollu | Project Coordinator | <a href="mailto:chku871@gmail.com">chku871@gmail.com</a> | <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 </footer>
 </main>
+
+<script>
+  (function () {
+    document
+      .querySelectorAll("section .section-header, .experience-card, .competency-group, .education-card, .pill, .contact-section")
+      .forEach((el) => el.classList.add("reveal"));
+
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("in-view");
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach((el) => observer.observe(el));
+
+    const canvas = document.getElementById("hero-particles");
+    const hero = document.querySelector(".hero");
+    if (!canvas || !hero) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let particles = [];
+    let mouseX = 0;
+    let mouseY = 0;
+    const maxParticles = 36;
+
+    function resize() {
+      canvas.width = hero.clientWidth;
+      canvas.height = hero.clientHeight;
+      particles = Array.from({ length: maxParticles }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.9 + 0.7
+      }));
+    }
+
+    function step() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        const dx = mouseX - p.x;
+        const dy = mouseY - p.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        if (dist < 140) {
+          p.vx -= (dx / dist) * 0.01;
+          p.vy -= (dy / dist) * 0.01;
+        }
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(79,195,247,0.42)";
+        ctx.fill();
+      });
+      requestAnimationFrame(step);
+    }
+
+    hero.addEventListener("mousemove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
+
+    window.addEventListener("resize", resize);
+    resize();
+    step();
+  })();
+</script>
 
 </body>
 </html>
