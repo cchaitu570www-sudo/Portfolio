@@ -8,6 +8,11 @@
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `cb339d06`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
 

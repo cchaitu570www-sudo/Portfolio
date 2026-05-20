@@ -5,9 +5,9 @@
     "semantic_hash": "9280871d9d100d67ce5b33d797c7a2d1"
   },
   "C:\\Users\\cchai\\OneDrive\\Desktop\\Portfolio\\index.html": {
-    "mtime": 1779258949.350621,
-    "ast_hash": "718319e8a4f07907d388d41cf11555ec",
-    "semantic_hash": "718319e8a4f07907d388d41cf11555ec"
+    "mtime": 1779260380.9485316,
+    "ast_hash": "9d8cc43cf4d9db83e5e9a409da977e49",
+    "semantic_hash": "9d8cc43cf4d9db83e5e9a409da977e49"
   },
   "C:\\Users\\cchai\\OneDrive\\Desktop\\Portfolio\\assets\\resume.pdf": {
     "mtime": 1779112130.6270583,
@@ -23,5 +23,15 @@
     "mtime": 1779258136.2514813,
     "ast_hash": "9a804156e8d38a98282d5d52912909ae",
     "semantic_hash": "9a804156e8d38a98282d5d52912909ae"
+  },
+  "C:\\Users\\cchai\\OneDrive\\Desktop\\Portfolio\\screenshot-desktop.png": {
+    "mtime": 1779259187.6752298,
+    "ast_hash": "b7ef16eb61bcd8299aced1728f8643de",
+    "semantic_hash": "b7ef16eb61bcd8299aced1728f8643de"
+  },
+  "C:\\Users\\cchai\\OneDrive\\Desktop\\Portfolio\\screenshot-mobile.png": {
+    "mtime": 1779259172.712588,
+    "ast_hash": "2b1e99cd7e6e41e8f160b77cb8acae46",
+    "semantic_hash": "2b1e99cd7e6e41e8f160b77cb8acae46"
   }
 }

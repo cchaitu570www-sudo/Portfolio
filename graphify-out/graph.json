@@ -91,5 +91,6 @@
       "target": "portfolio_script_observer"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "cb339d06cbb46306c82c604717b4584eb5e4a04f"
 }
