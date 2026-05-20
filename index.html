@@ -16,6 +16,7 @@
   <meta name="twitter:description" content="Project Coordinator specializing in complex implementation programs, governance, and delivery leadership." />
   <meta name="twitter:image" content="assets/headshot.png" />
   <link rel="canonical" href="https://your-username.github.io/portfolio/" />
+  <link rel="icon" type="image/webp" href="assets/headshot.webp" />
   <link rel="icon" type="image/png" href="assets/headshot.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -959,7 +960,10 @@
 <div class="hero">
   <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
   <div class="hero-portrait">
-    <img src="assets/headshot.png" alt="Headshot portrait of Chaitanya Mukkollu">
+    <picture>
+      <source srcset="assets/headshot.webp" type="image/webp">
+      <img src="assets/headshot.png" alt="Headshot portrait of Chaitanya Mukkollu">
+    </picture>
   </div>
     <div class="hero-content">
       <h1>Chaitanya Mukkollu</h1>
@@ -1305,26 +1309,4 @@
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
         p.vx *= 0.985;
         p.vy *= 0.985;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(79,195,247,0.42)";
-        ctx.fill();
-      });
-      requestAnimationFrame(step);
-    }
-
-    hero.addEventListener("mousemove", (e) => {
-      const rect = hero.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    });
-
-    window.addEventListener("resize", resize);
-    resize();
-    step();
-  })();
-</script>
-
-</body>
-</html>
-
+ 
