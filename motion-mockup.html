@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaitanya Mukkollu | Motion Graphics Mockup</title>
+  <meta name="description" content="Animated motion graphics concept mockup for Chaitanya Mukkollu's portfolio site.">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #16222e;
+      --soft: #51606e;
+      --accent: #0d5c63;
+      --accent-deep: #0a474d;
+      --amber: #92400e;
+      --shadow: 0 22px 60px rgba(22, 34, 46, 0.14);
+      --display: Georgia, "Times New Roman", serif;
+      --body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--body);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 460px at 78% -8%, rgba(13, 92, 99, 0.12), transparent 60%),
+        radial-gradient(720px 380px at 8% 92%, rgba(146, 64, 14, 0.1), transparent 58%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px clamp(24px, 6vw, 76px);
+      border-bottom: 1px solid rgba(22, 34, 46, 0.1);
+      background: rgba(247, 245, 240, 0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+      color: var(--soft);
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .resume {
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      padding: 13px 23px;
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(13, 92, 99, 0.22);
+    }
+
+    main {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: clamp(28px, 6vw, 80px);
+      align-items: center;
+      min-height: calc(100vh - 86px);
+      padding: clamp(38px, 7vw, 84px) clamp(24px, 6vw, 76px);
+      overflow: hidden;
+    }
+
+    .copy {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      animation: copyRise 900ms ease both;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(13, 92, 99, 0.22);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: var(--accent-deep);
+      background: rgba(13, 92, 99, 0.07);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #16a34a;
+      box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45);
+      animation: ping 1.8s ease-out infinite;
+    }
+
+    h1 {
+      margin: 28px 0 18px;
+      max-width: 660px;
+      font-family: var(--display);
+      font-size: clamp(48px, 6vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .role {
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 750;
+      max-width: 680px;
+    }
+
+    .desc {
+      color: var(--soft);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 18px 0 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 14px 22px;
+      border: 1px solid rgba(13, 92, 99, 0.22);
+      background: white;
+      color: var(--accent-deep);
+      font-weight: 850;
+      box-shadow: 0 10px 26px rgba(22, 34, 46, 0.08);
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 610px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .portrait-system {
+      position: relative;
+      width: min(430px, 82vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit,
+    .pulse,
+    .halo,
+    .node,
+    .route {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .orbit {
+      inset: 6px;
+      border: 1px dashed rgba(13, 92, 99, 0.34);
+      border-radius: 47% 53% 52% 48% / 52% 47% 53% 48%;
+      animation: spin 18s linear infinite;
+    }
+
+    .orbit.two {
+      inset: 28px;
+      border-style: solid;
+      border-color: rgba(146, 64, 14, 0.18);
+      animation: spinReverse 26s linear infinite;
+    }
+
+    .pulse {
+      inset: 54px;
+      border: 2px solid rgba(13, 92, 99, 0.18);
+      border-radius: 50%;
+      animation: pulse 3.8s ease-in-out infinite;
+    }
+
+    .halo {
+      width: 210px;
+      height: 210px;
+      left: 10px;
+      bottom: 24px;
+      border-radius: 50%;
+      background: rgba(146, 64, 14, 0.1);
+      animation: haloDrift 7s ease-in-out infinite;
+    }
+
+    .portrait {
+      position: relative;
+      z-index: 4;
+      width: 300px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 7px solid white;
+      box-shadow: var(--shadow);
+      animation: float 6.5s ease-in-out infinite;
+      background: #e9e4da;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      z-index: 5;
+      right: 34px;
+      bottom: 102px;
+      border: 1px solid rgba(22, 34, 46, 0.12);
+      border-radius: 14px;
+      background: white;
+      padding: 14px 20px;
+      color: var(--accent-deep);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      box-shadow: 0 18px 35px rgba(22, 34, 46, 0.14);
+      animation: badgeFloat 5.2s ease-in-out infinite;
+    }
+
+    .node {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(13, 92, 99, 0.45);
+      animation: nodeFloat 5s ease-in-out infinite;
+    }
+
+    .node.a { top: 84px; right: 70px; }
+    .node.b { left: 58px; top: 248px; background: var(--amber); animation-delay: 1s; }
+    .node.c { right: 42px; bottom: 156px; width: 9px; height: 9px; animation-delay: 2s; }
+    .node.d { left: 132px; bottom: 78px; background: var(--amber); animation-delay: 3s; }
+
+    .delivery-card {
+      position: absolute;
+      z-index: 6;
+      width: 178px;
+      border: 1px solid rgba(13, 92, 99, 0.16);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 36px rgba(22, 34, 46, 0.12);
+      backdrop-filter: blur(10px);
+      animation: cardDrift 6.5s ease-in-out infinite;
+    }
+
+    .delivery-card strong {
+      display: block;
+      color: var(--accent-deep);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(13, 92, 99, 0.12);
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), #1f8a95);
+      animation: fill 3.2s ease-in-out infinite;
+    }
+
+    .delivery-card.one { left: -34px; top: 70px; }
+    .delivery-card.two { right: -30px; top: 245px; animation-delay: 1.2s; }
+    .delivery-card.three { left: 0; bottom: 62px; animation-delay: 2.1s; }
+
+    .route {
+      z-index: 1;
+      height: 2px;
+      width: 180px;
+      background: linear-gradient(90deg, transparent, rgba(13, 92, 99, 0.7), transparent);
+      opacity: 0.75;
+      animation: routeMove 2.6s ease-in-out infinite;
+    }
+
+    .route.one { top: 146px; left: -12px; transform: rotate(16deg); }
+    .route.two { right: -10px; top: 318px; transform: rotate(-18deg); animation-delay: 0.8s; }
+    .route.three { bottom: 150px; left: 58px; transform: rotate(-10deg); animation-delay: 1.6s; }
+
+    .ticker {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 22px;
+      z-index: 1;
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      color: rgba(13, 92, 99, 0.55);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      animation: ticker 18s linear infinite;
+    }
+
+    .ticker span {
+      border: 1px solid rgba(13, 92, 99, 0.14);
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spinReverse { from { transform: rotate(360deg) scale(0.96); } to { transform: rotate(0deg) scale(0.96); } }
+    @keyframes pulse { 0%, 100% { transform: scale(0.92); opacity: 0.28; } 50% { transform: scale(1.12); opacity: 0.72; } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes badgeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes nodeFloat { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(10px, -14px, 0); } }
+    @keyframes haloDrift { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(18px, -10px) scale(1.05); } }
+    @keyframes cardDrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes routeMove { 0%, 100% { opacity: 0.22; background-position: -80px 0; } 50% { opacity: 0.9; background-position: 80px 0; } }
+    @keyframes fill { 0%, 100% { width: 44%; } 50% { width: 84%; } }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45); } 100% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); } }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes copyRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      header { flex-direction: column; }
+      main {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .copy { margin: 0 auto; }
+      .buttons { justify-content: center; }
+      .visual { order: -1; min-height: 540px; }
+      .delivery-card { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 45px; }
+      .portrait-system { width: 330px; }
+      .portrait { width: 230px; }
+      .badge { right: 20px; bottom: 88px; }
+      .visual { min-height: 450px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Chaitanya.</div>
+    <nav>
+      <span>Experience</span>
+      <span>Programs</span>
+      <span>Certifications</span>
+      <span>Skills</span>
+      <span>Contact</span>
+    </nav>
+    <button class="resume">Resume</button>
+  </header>
+
+  <main>
+    <section class="copy">
+      <div class="kicker">Open to Work - GTA - Hybrid / Remote</div>
+      <h1>Delivery that stays <em>on schedule</em>, stakeholders that stay <em>aligned</em>.</h1>
+      <div class="role">PMP Certified Technical Project Coordinator - Agile Delivery, PMO Support and Operational Execution</div>
+      <p class="desc">This mockup exaggerates the motion slightly so it is easy to review: orbiting hero accents, a soft pulse, floating delivery cards, and animated project flow lines.</p>
+      <div class="buttons">
+        <a class="btn primary" href="index.html#contact">Get in Touch</a>
+        <a class="btn" href="index.html">Back to Portfolio</a>
+      </div>
+    </section>
+
+    <section class="visual" aria-label="Animated motion graphics mockup">
+      <div class="portrait-system">
+        <div class="halo" aria-hidden="true"></div>
+        <div class="pulse" aria-hidden="true"></div>
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="orbit two" aria-hidden="true"></div>
+        <div class="route one" aria-hidden="true"></div>
+        <div class="route two" aria-hidden="true"></div>
+        <div class="route three" aria-hidden="true"></div>
+        <span class="node a" aria-hidden="true"></span>
+        <span class="node b" aria-hidden="true"></span>
+        <span class="node c" aria-hidden="true"></span>
+        <span class="node d" aria-hidden="true"></span>
+
+        <div class="delivery-card one">
+          <strong>RAID Log</strong>
+          <div class="bar" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="delivery-card two">
+          <strong>UAT Triage</strong>
+          <div class="bar" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="delivery-card three">
+          <strong>Go-live</strong>
+          <div class="bar" aria-hidden="true"><span></span></div>
+        </div>
+
+        <div class="portrait">
+          <img src="assets/headshot.webp" alt="Headshot portrait of Chaitanya Mukkollu">
+        </div>
+        <div class="badge">PMP Certified</div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <span>Schedules</span><span>Stakeholders</span><span>Risks</span><span>UAT</span><span>Hypercare</span>
+      <span>Schedules</span><span>Stakeholders</span><span>Risks</span><span>UAT</span><span>Hypercare</span>
+    </div>
+  </main>
+</body>
+</html>
