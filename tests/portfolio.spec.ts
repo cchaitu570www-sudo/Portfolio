@@ -53,6 +53,30 @@ test("visibility: key hero and section headings are visible and readable in view
   }
 });
 
+test("motion: subtle hero graphics animate and respect reduced motion", async ({ page }) => {
+  await expect(page.locator(".hero-motion-layer[aria-hidden='true']")).toHaveCount(1);
+  await expect(page.locator(".hero-motion-orbit")).toHaveCount(2);
+  await expect(page.locator(".hero-motion-pulse")).toHaveCount(1);
+  await expect(page.locator(".hero-motion-dot")).toHaveCount(4);
+
+  const orbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
+    nodes.map((node) => getComputedStyle(node).animationName)
+  );
+  expect(orbitAnimationNames.every((name) => name !== "none")).toBeTruthy();
+
+  const revealOrders = await page.locator(".reveal").evaluateAll((nodes) =>
+    nodes.slice(0, 6).map((node) => getComputedStyle(node).getPropertyValue("--reveal-order").trim())
+  );
+  expect(revealOrders).toEqual(["0", "1", "2", "3", "4", "5"]);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+
+  const reducedOrbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
+    nodes.map((node) => getComputedStyle(node).animationName)
+  );
+  expect(reducedOrbitAnimationNames).toEqual(["none", "none"]);
+});
+
 test("readability: content sizing and spacing baseline stays healthy", async ({ page }) => {
   const readabilityMetrics = await page.evaluate(() => {
     const bodyStyles = getComputedStyle(document.body);
