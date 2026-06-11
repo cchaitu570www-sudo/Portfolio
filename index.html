@@ -603,7 +603,7 @@
     /* === PROJECTS === */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.4rem;
     }
 
@@ -724,7 +724,7 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
     }
 
@@ -750,7 +750,7 @@
     /* === COMPETENCIES === */
     .competencies {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.4rem;
     }
 
@@ -968,6 +968,25 @@
     }
 
     /* === RESPONSIVE === */
+    @media (max-width: 980px) {
+      .header-content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo action"
+          "nav nav";
+        row-gap: 0.6rem;
+      }
+
+      .logo { grid-area: logo; justify-self: start; }
+      header .btn { grid-area: action; justify-self: end; }
+
+      .nav {
+        grid-area: nav;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 880px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -981,9 +1000,10 @@
     }
 
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: 0.8rem; padding: 0.9rem 1rem; }
+      .header-content { gap: 0.8rem; padding: 0.9rem 1rem; }
       .nav { justify-content: center; gap: 1rem; }
       .hero { padding: 2.8rem 1.2rem 2.4rem; }
+      .stats { padding: 1.2rem 1.2rem 2.4rem; }
       section { padding: 2.8rem 0; }
       .container { padding: 0 1.2rem; }
       .timeline { padding-left: 1.8rem; }
@@ -991,6 +1011,24 @@
       .experience-card::before { left: -1.68rem; }
       .cert-feature { padding: 1.8rem 1.6rem; }
       .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .header-content {
+        gap: 0.55rem 1rem;
+        padding: 0.65rem 1rem;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.45rem 0.85rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .nav a { font-size: 0.82rem; }
+      header .btn { padding: 0.52rem 0.95rem; }
     }
   </style>
 </head>

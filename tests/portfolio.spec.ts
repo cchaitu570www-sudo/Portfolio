@@ -114,6 +114,81 @@ test("readability: content sizing and spacing baseline stays healthy", async ({ 
   expect(readabilityMetrics.hasHorizontalOverflow).toBeFalsy();
 });
 
+test("layout: key sections stay aligned across desktop, tablet, and phone", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+
+  const desktopRows = await page.evaluate(() => {
+    const rowCounts = (selector: string) => {
+      const counts = new Map<number, number>();
+      for (const node of Array.from(document.querySelectorAll(selector))) {
+        const y = Math.round(node.getBoundingClientRect().top);
+        counts.set(y, (counts.get(y) ?? 0) + 1);
+      }
+      return Array.from(counts.values());
+    };
+
+    return {
+      projectRows: rowCounts(".project-card"),
+      competencyRows: rowCounts(".competency-group"),
+      certRows: rowCounts(".cert-card"),
+    };
+  });
+
+  expect(desktopRows.projectRows).toEqual([4]);
+  expect(desktopRows.competencyRows).toEqual([4]);
+  expect(desktopRows.certRows).toEqual([3, 3, 3]);
+
+  await page.setViewportSize({ width: 820, height: 1180 });
+
+  const tabletHeader = await page.evaluate(() => {
+    const rect = (selector: string) => {
+      const node = document.querySelector(selector);
+      if (!node) throw new Error(`Missing ${selector}`);
+      const bounds = node.getBoundingClientRect();
+      return {
+        top: Math.round(bounds.top),
+        bottom: Math.round(bounds.bottom),
+        height: Math.round(bounds.height),
+      };
+    };
+
+    return {
+      logo: rect(".logo"),
+      nav: rect(".nav"),
+      header: rect("header"),
+    };
+  });
+
+  expect(tabletHeader.nav.top).toBeGreaterThanOrEqual(tabletHeader.logo.bottom);
+  expect(tabletHeader.header.height).toBeLessThanOrEqual(130);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  const phoneMetrics = await page.evaluate(() => {
+    const rect = (selector: string) => {
+      const node = document.querySelector(selector);
+      if (!node) throw new Error(`Missing ${selector}`);
+      const bounds = node.getBoundingClientRect();
+      return {
+        left: Math.round(bounds.left),
+        right: Math.round(bounds.right),
+        height: Math.round(bounds.height),
+      };
+    };
+
+    return {
+      header: rect("header"),
+      heroInner: rect(".hero-inner"),
+      statsGrid: rect(".stats-grid"),
+      hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth,
+    };
+  });
+
+  expect(phoneMetrics.header.height).toBeLessThanOrEqual(132);
+  expect(Math.abs(phoneMetrics.heroInner.left - phoneMetrics.statsGrid.left)).toBeLessThanOrEqual(2);
+  expect(phoneMetrics.hasHorizontalOverflow).toBeFalsy();
+});
+
 test("readability/accessibility: no critical or serious axe violations", async ({ page }) => {
   const results = await new AxeBuilder({ page }).analyze();
   const severe = results.violations.filter((v) =>
