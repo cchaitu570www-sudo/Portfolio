@@ -53,23 +53,25 @@ test("visibility: key hero and section headings are visible and readable in view
   }
 });
 
-test("motion: subtle hero graphics animate and respect reduced motion", async ({ page }) => {
+test("motion: subtle decorative hero graphics animate without workflow cards", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+
   await expect(page.locator(".hero-motion-layer[aria-hidden='true']")).toHaveCount(1);
   await expect(page.locator(".hero-motion-orbit")).toHaveCount(2);
   await expect(page.locator(".hero-motion-pulse")).toHaveCount(1);
   await expect(page.locator(".hero-motion-dot")).toHaveCount(4);
-  await expect(page.locator(".hero-flow-card")).toHaveCount(3);
-  await expect(page.locator(".hero-flow-line")).toHaveCount(3);
+  await expect(page.locator(".hero-flow-card")).toHaveCount(0);
+  await expect(page.locator(".hero-motion-layer")).not.toContainText(/Scope|RAID|Status/);
 
   const orbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
     nodes.map((node) => getComputedStyle(node).animationName)
   );
   expect(orbitAnimationNames.every((name) => name !== "none")).toBeTruthy();
 
-  const visibleMotionAnimationNames = await page.locator(".hero-flow-card, .hero-flow-line").evaluateAll((nodes) =>
+  const dotAnimationNames = await page.locator(".hero-motion-dot").evaluateAll((nodes) =>
     nodes.map((node) => getComputedStyle(node).animationName)
   );
-  expect(visibleMotionAnimationNames.every((name) => name !== "none")).toBeTruthy();
+  expect(dotAnimationNames.every((name) => name !== "none")).toBeTruthy();
 
   const revealOrders = await page.locator(".reveal").evaluateAll((nodes) =>
     nodes.slice(0, 6).map((node) => getComputedStyle(node).getPropertyValue("--reveal-order").trim())
@@ -83,10 +85,10 @@ test("motion: subtle hero graphics animate and respect reduced motion", async ({
   );
   expect(reducedOrbitAnimationNames).toEqual(["none", "none"]);
 
-  const reducedVisibleMotionAnimationNames = await page.locator(".hero-flow-card, .hero-flow-line").evaluateAll((nodes) =>
+  const reducedDotAnimationNames = await page.locator(".hero-motion-dot").evaluateAll((nodes) =>
     nodes.map((node) => getComputedStyle(node).animationName)
   );
-  expect(reducedVisibleMotionAnimationNames).toEqual(["none", "none", "none", "none", "none", "none"]);
+  expect(reducedDotAnimationNames).toEqual(["none", "none", "none", "none"]);
 });
 
 test("readability: content sizing and spacing baseline stays healthy", async ({ page }) => {
