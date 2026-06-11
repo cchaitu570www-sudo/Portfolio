@@ -131,6 +131,14 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
       projectRows: rowCounts(".project-card"),
       competencyRows: rowCounts(".competency-group"),
       certRows: rowCounts(".cert-card"),
+      projectBadgeOverflow: Array.from(document.querySelectorAll(".project-card")).some((card) => {
+        const badge = card.querySelector(".status-badge");
+        if (!badge) return false;
+
+        const cardRect = card.getBoundingClientRect();
+        const badgeRect = badge.getBoundingClientRect();
+        return badgeRect.left < cardRect.left - 1 || badgeRect.right > cardRect.right + 1;
+      }),
       timelineOffset: Math.round(
         (document.querySelector(".experience-card")?.getBoundingClientRect().left ?? 0) -
           (document.querySelector("#experience .section-header")?.getBoundingClientRect().left ?? 0)
@@ -141,6 +149,7 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
   expect(desktopRows.projectRows).toEqual([4]);
   expect(desktopRows.competencyRows).toEqual([4]);
   expect(desktopRows.certRows).toEqual([3, 3, 3]);
+  expect(desktopRows.projectBadgeOverflow).toBeFalsy();
   expect(desktopRows.timelineOffset).toBeLessThanOrEqual(20);
 
   await page.locator("nav a[href='#experience']").click();
