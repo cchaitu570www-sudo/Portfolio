@@ -58,11 +58,18 @@ test("motion: subtle hero graphics animate and respect reduced motion", async ({
   await expect(page.locator(".hero-motion-orbit")).toHaveCount(2);
   await expect(page.locator(".hero-motion-pulse")).toHaveCount(1);
   await expect(page.locator(".hero-motion-dot")).toHaveCount(4);
+  await expect(page.locator(".hero-flow-card")).toHaveCount(3);
+  await expect(page.locator(".hero-flow-line")).toHaveCount(3);
 
   const orbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
     nodes.map((node) => getComputedStyle(node).animationName)
   );
   expect(orbitAnimationNames.every((name) => name !== "none")).toBeTruthy();
+
+  const visibleMotionAnimationNames = await page.locator(".hero-flow-card, .hero-flow-line").evaluateAll((nodes) =>
+    nodes.map((node) => getComputedStyle(node).animationName)
+  );
+  expect(visibleMotionAnimationNames.every((name) => name !== "none")).toBeTruthy();
 
   const revealOrders = await page.locator(".reveal").evaluateAll((nodes) =>
     nodes.slice(0, 6).map((node) => getComputedStyle(node).getPropertyValue("--reveal-order").trim())
@@ -75,6 +82,11 @@ test("motion: subtle hero graphics animate and respect reduced motion", async ({
     nodes.map((node) => getComputedStyle(node).animationName)
   );
   expect(reducedOrbitAnimationNames).toEqual(["none", "none"]);
+
+  const reducedVisibleMotionAnimationNames = await page.locator(".hero-flow-card, .hero-flow-line").evaluateAll((nodes) =>
+    nodes.map((node) => getComputedStyle(node).animationName)
+  );
+  expect(reducedVisibleMotionAnimationNames).toEqual(["none", "none", "none", "none", "none", "none"]);
 });
 
 test("readability: content sizing and spacing baseline stays healthy", async ({ page }) => {
