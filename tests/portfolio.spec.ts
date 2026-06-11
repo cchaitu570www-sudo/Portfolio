@@ -143,6 +143,11 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
         (document.querySelector(".experience-card")?.getBoundingClientRect().left ?? 0) -
           (document.querySelector("#experience .section-header")?.getBoundingClientRect().left ?? 0)
       ),
+      timelineContentGap: Math.round(
+        (document.querySelector(".experience-role")?.getBoundingClientRect().left ?? 0) -
+          ((document.querySelector(".timeline")?.getBoundingClientRect().left ?? 0) +
+            parseFloat(getComputedStyle(document.querySelector(".timeline")!, "::before").left))
+      ),
     };
   });
 
@@ -150,7 +155,9 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
   expect(desktopRows.competencyRows).toEqual([4]);
   expect(desktopRows.certRows).toEqual([3, 3, 3]);
   expect(desktopRows.projectBadgeOverflow).toBeFalsy();
-  expect(desktopRows.timelineOffset).toBeLessThanOrEqual(20);
+  expect(desktopRows.timelineOffset).toBeGreaterThanOrEqual(28);
+  expect(desktopRows.timelineOffset).toBeLessThanOrEqual(44);
+  expect(desktopRows.timelineContentGap).toBeGreaterThanOrEqual(56);
 
   await page.locator("nav a[href='#experience']").click();
 
