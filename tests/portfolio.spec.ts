@@ -131,12 +131,32 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
       projectRows: rowCounts(".project-card"),
       competencyRows: rowCounts(".competency-group"),
       certRows: rowCounts(".cert-card"),
+      timelineOffset: Math.round(
+        (document.querySelector(".experience-card")?.getBoundingClientRect().left ?? 0) -
+          (document.querySelector("#experience .section-header")?.getBoundingClientRect().left ?? 0)
+      ),
     };
   });
 
   expect(desktopRows.projectRows).toEqual([4]);
   expect(desktopRows.competencyRows).toEqual([4]);
   expect(desktopRows.certRows).toEqual([3, 3, 3]);
+  expect(desktopRows.timelineOffset).toBeLessThanOrEqual(20);
+
+  await page.locator("nav a[href='#experience']").click();
+
+  const sectionAnchor = await page.evaluate(() => {
+    const header = document.querySelector("header");
+    const label = document.querySelector("#experience .section-label");
+    if (!header || !label) throw new Error("Missing header or experience label");
+
+    return {
+      headerBottom: Math.round(header.getBoundingClientRect().bottom),
+      labelTop: Math.round(label.getBoundingClientRect().top),
+    };
+  });
+
+  expect(sectionAnchor.labelTop).toBeGreaterThanOrEqual(sectionAnchor.headerBottom + 8);
 
   await page.setViewportSize({ width: 820, height: 1180 });
 
