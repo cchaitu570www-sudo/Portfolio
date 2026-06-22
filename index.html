@@ -801,6 +801,25 @@
     }
     .status-closed { background: rgba(21, 128, 61, 0.12); color: #166534; border: 1px solid rgba(21, 128, 61, 0.3); }
     .status-active { background: rgba(180, 83, 9, 0.12); color: #92400e; border: 1px solid rgba(180, 83, 9, 0.3); }
+
+    /* === DARK-SECTION CONTRAST OVERRIDES (WCAG AA compliance on glass cards) === */
+    .dark-section .project-company { color: #fbbf24; }
+    .dark-section .project-meta { color: rgba(255,255,255,0.65); }
+    .dark-section .status-closed {
+      background: rgba(74,222,128,0.12);
+      color: #4ade80;
+      border-color: rgba(74,222,128,0.3);
+    }
+    .dark-section .status-active {
+      background: rgba(251,191,36,0.12);
+      color: #fbbf24;
+      border-color: rgba(251,191,36,0.3);
+    }
+    .dark-section .status-hypercare {
+      background: rgba(45,212,191,0.12);
+      color: #2dd4bf;
+      border-color: rgba(45,212,191,0.3);
+    }
     .status-hypercare { background: rgba(13, 92, 99, 0.1); color: var(--accent-deep); border: 1px solid var(--accent-line); }
 
     /* === CERTIFICATIONS === */
@@ -1059,7 +1078,7 @@
     /* === FOOTER === */
     footer {
       background: var(--dark-bg);
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 2.4rem 2rem;
       font-size: 0.95rem;
@@ -1632,4 +1651,150 @@
         x: canvas.width  * 0.38,
         y: canvas.height * 0.50,
         r: 0,
-        maxR: Math.max(canvas.width, canvas.height)
+        maxR: Math.max(canvas.width, canvas.height) * 1.1,
+        born: Date.now()
+      };
+      console.log('gravity-grid ripple started');
+    }
+
+    function tick() {
+      requestAnimationFrame(tick);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var len = dots.length;
+      if (!len) return;
+
+      var ax = mouse.x, ay = mouse.y;
+
+      if (ax < 0 && ripple) {
+        var age = (Date.now() - ripple.born) / 1000;
+        ripple.r = age * 280;
+        if (ripple.r < ripple.maxR + 80) {
+          ax = ripple.x;
+          ay = ripple.y;
+        } else {
+          ripple = null;
+        }
+      }
+
+      for (var i = 0; i < len; i++) {
+        var d   = dots[i];
+        var dx  = ax - d.x;
+        var dy  = ay - d.y;
+        var d2  = dx * dx + dy * dy;
+
+        if (d2 < RADIUS * RADIUS && d2 > 0) {
+          var dist  = Math.sqrt(d2);
+          var fmul  = 1;
+          if (ripple && mouse.x < 0) {
+            var fromFront = Math.abs(dist - ripple.r);
+            fmul = Math.max(0, 1 - fromFront / 90);
+          }
+          var force = (1 - dist / RADIUS) * STRENGTH * fmul;
+          d.vx += (dx / dist) * force * SPACING * 0.6;
+          d.vy += (dy / dist) * force * SPACING * 0.6;
+        }
+
+        d.vx += (d.ox - d.x) * SPRING;
+        d.vy += (d.oy - d.y) * SPRING;
+        d.vx *= DAMP;
+        d.vy *= DAMP;
+        d.x  += d.vx;
+        d.y  += d.vy;
+      }
+
+      /* connection lines */
+      for (var i = 0; i < len; i++) {
+        var a    = dots[i];
+        var dspA = Math.sqrt((a.x-a.ox)*(a.x-a.ox)+(a.y-a.oy)*(a.y-a.oy));
+        if (dspA < 0.8) continue;
+        for (var j = i + 1; j < len; j++) {
+          var b    = dots[j];
+          var dspB = Math.sqrt((b.x-b.ox)*(b.x-b.ox)+(b.y-b.oy)*(b.y-b.oy));
+          if (dspB < 0.8) continue;
+          var lx = b.x - a.x, ly = b.y - a.y;
+          var ld = Math.sqrt(lx*lx + ly*ly);
+          if (ld < LINE_D) {
+            var al = (1 - ld/LINE_D) * Math.min(dspA, dspB) / 5;
+            if (al > 0.02) {
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = 'rgba(13,92,99,' + Math.min(al, 0.45) + ')';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      /* dots — visible at rest (0.35 alpha) */
+      for (var i = 0; i < len; i++) {
+        var d    = dots[i];
+        var disp = Math.sqrt((d.x-d.ox)*(d.x-d.ox)+(d.y-d.oy)*(d.y-d.oy));
+        var al   = 0.35 + Math.min(disp / 9, 1) * 0.55;
+        var rv   = DOT_R + Math.min(disp / 12, 1.4);
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, rv, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(13,92,99,' + al + ')';
+        ctx.fill();
+      }
+    }
+
+    hero.addEventListener('mousemove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      ripple  = null;
+    });
+    hero.addEventListener('mouseleave', function () {
+      mouse.x = -9999; mouse.y = -9999;
+    });
+    hero.addEventListener('touchmove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var t = e.touches[0];
+      mouse.x = t.clientX - rect.left;
+      mouse.y = t.clientY - rect.top;
+      ripple  = null;
+    }, { passive: true });
+    hero.addEventListener('touchend', function () {
+      mouse.x = -9999; mouse.y = -9999;
+    });
+
+    var ro = new ResizeObserver(function () { resize(); });
+    ro.observe(hero);
+
+    window.addEventListener('load', function () {
+      resize();
+      setTimeout(startRipple, 600);
+    });
+    resize();
+    if (canvas.width > 0) setTimeout(startRipple, 600);
+    tick();
+    console.log('gravity-grid initialised, dot count:', dots.length);
+  })();
+
+  /* === REVEAL SCROLL === */
+  (function () {
+    var reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(function (el, index) {
+      var revealOrder = index % 6;
+      el.style.setProperty("--reveal-order", String(revealOrder));
+      el.style.setProperty("--reveal-delay", (revealOrder * 70) + "ms");
+    });
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach(function (el) { el.classList.add("in-view"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+</body>
+</html>
