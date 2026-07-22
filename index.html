@@ -1,1779 +1,644 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chaitanya Mukkollu | PMP Certified Technical Project Coordinator</title>
-  <meta name="description" content="PMP Certified Technical Project Coordinator specializing in Agile delivery, PMO support, cross-functional coordination, and AI-enabled project execution." />
-  <meta name="author" content="Chaitanya Kumar Mukkollu" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Chaitanya Mukkollu | PMP Certified Technical Project Coordinator" />
-  <meta property="og:description" content="PMP Certified Technical Project Coordinator specializing in Agile delivery, PMO support, cross-functional coordination, and AI-enabled project execution." />
-  <meta property="og:image" content="assets/headshot.webp" />
-  <meta property="og:url" content="https://cchaitu570www-sudo.github.io/Portfolio/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Chaitanya Mukkollu | PMP Certified Technical Project Coordinator" />
-  <meta name="twitter:description" content="PMP Certified Technical Project Coordinator specializing in Agile delivery, PMO support, cross-functional coordination, and AI-enabled project execution." />
-  <meta name="twitter:image" content="assets/headshot.webp" />
-  <link rel="canonical" href="https://cchaitu570www-sudo.github.io/Portfolio/" />
-  <link rel="icon" type="image/webp" href="assets/headshot.webp" />
-  <link rel="icon" type="image/png" href="assets/headshot.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Chaitanya Mukkollu, a PMP-certified Technical Project Coordinator specializing in Agile delivery, PMO support, RAID governance, UAT, go-live, and hypercare.">
+  <meta name="theme-color" content="#f7f4ed">
+  <title>Chaitanya Mukkollu | PMP-Certified Technical Project Coordinator</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d6569'/%3E%3Cpath d='M43 22a15 15 0 1 0 0 20' fill='none' stroke='%23fffdf9' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f5f0;
-      --bg-alt: #efece4;
-      --surface: #ffffff;
-      --ink: #16222e;
-      --ink-soft: #33414f;
-      --ink-mute: #51606e;
-      --accent: #0d5c63;
-      --accent-deep: #0a474d;
-      --accent-soft: rgba(13, 92, 99, 0.08);
-      --accent-line: rgba(13, 92, 99, 0.25);
-      --amber: #92400e;
-      --amber-vivid: #f59e0b;
-      --amber-soft: rgba(180, 83, 9, 0.1);
-      --violet: #6d28d9;
-      --violet-deep: #4c1d95;
-      --violet-soft: rgba(109, 40, 217, 0.12);
-      --violet-line: rgba(109, 40, 217, 0.3);
-      --dark-bg: #efece4;
-      --dark-surface: rgba(255,255,255,0.7);
-      --dark-border: rgba(22,34,46,0.1);
-      --border: rgba(22, 34, 46, 0.12);
-      --shadow-sm: 0 6px 18px rgba(22, 34, 46, 0.07);
-      --shadow-md: 0 16px 38px rgba(22, 34, 46, 0.12);
-      --shadow-glow: 0 0 40px rgba(13, 92, 99, 0.25);
-      --grad-brand: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
-      --grad-hero: linear-gradient(135deg, #f7f5f0 0%, #eef1f0 50%, #f3f0fb 100%);
-      --radius: 14px;
-      --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-      --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      --ease: 0.3s ease;
+      --paper: #f7f4ed;
+      --paper-2: #eee9df;
+      --surface: #fffdf9;
+      --ink: #10282d;
+      --muted: #526269;
+      --line: rgba(16, 40, 45, 0.13);
+      --teal: #0d6569;
+      --teal-dark: #084b4f;
+      --teal-soft: #dcebea;
+      --amber: #9a4c0c;
+      --amber-soft: #fff1d9;
+      --green: #166534;
+      --shadow: 0 22px 60px rgba(16, 40, 45, 0.12);
+      --radius: 24px;
+      --sans: "Inter", system-ui, sans-serif;
+      --serif: "Fraunces", Georgia, serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: var(--font-body);
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      background:
-        radial-gradient(1100px 500px at 85% -5%, rgba(13, 92, 99, 0.09), transparent 60%),
-        radial-gradient(900px 420px at -10% 30%, rgba(180, 83, 9, 0.06), transparent 55%),
-        var(--bg);
-      min-height: 100vh;
+      line-height: 1.6;
     }
-
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid #e18a2d;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
     .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: -100%;
+      position: fixed;
+      left: 16px;
+      top: -80px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 10px;
       background: var(--surface);
       color: var(--ink);
-      border: 2px solid var(--accent);
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      z-index: 999;
-      transition: top var(--ease);
+      font-weight: 700;
+      transition: top .2s ease;
     }
-    .skip-link:focus { top: 0.8rem; }
+    .skip-link:focus { top: 12px; }
 
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 6px;
-    }
-
-    /* === HEADER === */
-    header {
-      background: rgba(247, 245, 240, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 20;
+      background: rgba(247, 244, 237, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
-
-    .header-content {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0.9rem 2rem;
-      display: flex;
-      justify-content: space-between;
+    .nav-shell {
+      height: 72px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 1rem;
+      gap: 40px;
     }
-
-    .logo {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--ink);
-      letter-spacing: -0.01em;
+    .brand {
+      font: 700 1.4rem/1 var(--serif);
       text-decoration: none;
+      letter-spacing: -0.02em;
     }
-    .logo span { color: var(--accent); }
-
-    .nav { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--ink-mute);
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: color var(--ease);
-    }
-    .nav a:hover { color: var(--accent-deep); }
-
-    .btn {
-      display: inline-block;
-      padding: 0.62rem 1.3rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.92rem;
+    .brand span { color: var(--teal); }
+    .primary-nav { display: flex; justify-content: center; gap: 28px; }
+    .primary-nav a {
+      color: var(--muted);
+      font-size: 0.9rem;
       font-weight: 600;
-      font-family: var(--font-body);
-      transition: all var(--ease);
-      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .primary-nav a:hover { color: var(--teal-dark); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 1.15rem;
       cursor: pointer;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: var(--shadow-sm);
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font: 700 0.91rem/1 var(--sans);
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
     }
-    .btn-primary:hover {
-      background: var(--accent-deep);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--teal); color: white; box-shadow: 0 10px 24px rgba(13, 101, 105, 0.2); }
+    .button-primary:hover { background: var(--teal-dark); }
+    .button-secondary { background: transparent; border-color: var(--line); color: var(--ink); }
+    .button-compact { min-height: 42px; padding: 0 18px; }
 
-    .btn-secondary {
-      border-color: var(--accent-line);
-      color: var(--accent-deep);
-      background: transparent;
-    }
-    .btn-secondary:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-    }
-
-    /* Hero-specific button overrides */
-    .hero .btn-primary {
-      background: var(--grad-brand);
-      border: none;
-      box-shadow: 0 4px 24px rgba(109,40,217,0.35);
-    }
-    .hero .btn-primary:hover {
-      opacity: 0.92;
-      box-shadow: 0 6px 32px rgba(109,40,217,0.5);
-    }
-    .hero .btn-secondary {
-      border-color: rgba(22,34,46,0.18);
-      color: var(--ink-soft);
-      background: rgba(22,34,46,0.04);
-    }
-    .hero .btn-secondary:hover {
-      background: rgba(22,34,46,0.08);
-      border-color: rgba(22,34,46,0.35);
-    }
-
-    /* === HERO === */
+    main section { scroll-margin-top: 92px; }
     .hero {
-      padding: 4.5rem 2rem 3.5rem;
       position: relative;
       overflow: hidden;
-      background: var(--grad-hero);
+      background:
+        radial-gradient(circle at 78% 44%, rgba(13, 101, 105, 0.14), transparent 28%),
+        linear-gradient(135deg, #fbf9f4 0%, #f3efe7 60%, #e8efec 100%);
+      border-bottom: 1px solid var(--line);
     }
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(109,40,217,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(13,92,99,0.15) 0%, transparent 60%);
+      opacity: 0.35;
+      background-image: radial-gradient(rgba(13, 101, 105, 0.36) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(90deg, black, transparent 62%);
       pointer-events: none;
-      z-index: 0;
     }
-
-    #gravity-grid {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.5;
-    }
-
-    #gravity-shimmer {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      background: linear-gradient(105deg, transparent 38%, rgba(13,92,99,0.08) 50%, transparent 62%);
-      background-size: 300% 100%;
-      animation: shimmer-sweep 15s ease-in-out infinite;
-    }
-
-    @keyframes shimmer-sweep {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -100% 0; }
-    }
-
-    .hero-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-      gap: 3.5rem;
-      align-items: center;
+    .hero-shell {
       position: relative;
-      z-index: 1;
+      min-height: 650px;
+      padding: 70px 0 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+      align-items: center;
+      gap: 70px;
     }
-
-    .hero-kicker {
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .availability {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.4rem 1rem;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid #e8c589;
       border-radius: 999px;
-      border: 1px solid rgba(245,158,11,0.4);
-      background: rgba(245,158,11,0.12);
-      color: var(--amber-vivid);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 1.4rem;
     }
-
-    .dot {
-      width: 8px; height: 8px;
-      background: #15803d;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 7px rgba(21, 128, 61, 0.55);
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.8vw, 5rem);
-      font-weight: 600;
-      line-height: 1.06;
-      color: var(--ink);
-      letter-spacing: -0.025em;
-      margin-bottom: 1.1rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--violet-deep);
-    }
-
-    .hero-role {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--ink-soft);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-description {
-      font-size: 1.05rem;
-      color: var(--ink-mute);
-      max-width: 580px;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-facts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem 1.4rem;
-      font-size: 0.88rem;
-      color: var(--ink-mute);
-      font-weight: 500;
-      margin-bottom: 2rem;
-      letter-spacing: 0.02em;
-    }
-    .hero-facts strong { color: var(--accent-deep); font-weight: 700; }
-
-    .hero-buttons { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-
-    .hero-visual {
-      position: relative;
-      justify-self: center;
-      isolation: isolate;
-    }
-
-    .hero-motion-layer {
-      position: absolute;
-      inset: -2.1rem;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero-motion-orbit,
-    .hero-motion-pulse,
-    .hero-motion-dot,
-    .hero-flow-line {
-      position: absolute;
-      display: block;
-      pointer-events: none;
-    }
-
-    .hero-motion-orbit {
-      inset: 0.15rem;
-      border: 1px dashed rgba(167,139,250,0.4);
-      border-radius: 47% 53% 52% 48% / 52% 47% 53% 48%;
-      animation: heroOrbit 24s linear infinite;
-    }
-
-    .hero-motion-orbit-secondary {
-      inset: 1.15rem;
-      border-style: solid;
-      border-color: rgba(245,158,11,0.2);
-      animation: heroCounterOrbit 32s linear infinite;
-    }
-
-    .hero-motion-pulse {
-      inset: 2.25rem;
-      border: 1px solid rgba(45,212,191,0.3);
-      border-radius: 50%;
-      animation: heroPulse 4.8s ease-in-out infinite;
-    }
-
-    .hero-motion-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #2dd4bf;
-      box-shadow: 0 0 14px rgba(45,212,191,0.6);
-      animation: heroDotFloat 5.8s ease-in-out infinite;
-    }
-
-    .hero-motion-dot.dot-one {
-      top: 11%;
-      right: 18%;
-    }
-
-    .hero-motion-dot.dot-two {
-      top: 48%;
-      left: 3%;
-      width: 7px;
-      height: 7px;
-      background: var(--amber-vivid);
-      box-shadow: 0 0 14px rgba(245,158,11,0.6);
-      animation-delay: 1.1s;
-    }
-
-    .hero-motion-dot.dot-three {
-      right: 4%;
-      bottom: 22%;
-      width: 6px;
-      height: 6px;
-      animation-delay: 2.2s;
-    }
-
-    .hero-motion-dot.dot-four {
-      left: 21%;
-      bottom: 5%;
+    .availability::before {
+      content: "";
       width: 8px;
       height: 8px;
-      background: var(--amber-vivid);
-      box-shadow: 0 0 14px rgba(245,158,11,0.6);
-      animation-delay: 3.3s;
+      border-radius: 50%;
+      background: #15803d;
+      box-shadow: 0 0 0 4px rgba(21, 128, 61, .1);
     }
-
-    .hero-flow-line {
-      width: 94px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, rgba(167,139,250,0.8), transparent);
-      opacity: 0.5;
-      transform: var(--line-transform, rotate(0deg)) scaleX(0.7);
-      transform-origin: center;
-      animation: heroFlowLine 4.6s ease-in-out infinite;
+    .mobile-headshot { display: none; }
+    h1 {
+      max-width: 720px;
+      margin: 24px 0 18px;
+      font: 600 clamp(3.2rem, 5.4vw, 5.4rem)/.98 var(--serif);
+      letter-spacing: -0.045em;
     }
-
-    .hero-flow-line.line-one {
-      top: 22%;
-      left: 8%;
-      --line-transform: rotate(24deg);
-    }
-
-    .hero-flow-line.line-two {
-      top: 45%;
-      right: -0.9rem;
-      width: 106px;
-      --line-transform: rotate(-18deg);
-      animation-delay: 0.8s;
-    }
-
-    .hero-flow-line.line-three {
-      left: 14%;
-      bottom: 15%;
-      width: 82px;
-      --line-transform: rotate(-32deg);
-      animation-delay: 1.6s;
-    }
-
-    .hero-portrait {
-      width: clamp(220px, 24vw, 300px);
-      aspect-ratio: 1 / 1;
-      border-radius: 48% 52% 52% 48% / 52% 48% 52% 48%;
-      overflow: hidden;
-      border: 3px solid rgba(255,255,255,0.15);
-      box-shadow: 0 0 0 1px rgba(109,40,217,0.4), 0 20px 60px rgba(0,0,0,0.5), var(--shadow-glow);
-      position: relative;
-      z-index: 2;
-      animation: heroPortraitFloat 7s ease-in-out infinite;
-    }
-    .hero-portrait img {
-      width: 100%; height: 100%;
+    h1 .credential-line {
       display: block;
-      object-fit: cover;
-      object-position: center 20%;
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: -1.1rem -1.1rem auto auto;
-      width: 70%;
-      height: 70%;
-      border: 2px dashed rgba(167,139,250,0.4);
-      border-radius: 50%;
-      z-index: 0;
-      opacity: 0.7;
-    }
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      bottom: -1.4rem;
-      left: -1.4rem;
-      width: 56%;
-      height: 56%;
-      background: radial-gradient(circle, rgba(245,158,11,0.25) 0%, transparent 70%);
-      border-radius: 50%;
-      z-index: 0;
-    }
-
-    .hero-credential {
-      position: absolute;
-      bottom: -0.4rem;
-      right: -0.6rem;
-      z-index: 3;
-      background: var(--grad-brand);
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(109,40,217,0.45);
-      padding: 0.55rem 0.95rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 0.05em;
+      margin-bottom: 9px;
+      color: var(--teal);
+      font: 800 .92rem/1.2 var(--sans);
+      letter-spacing: .12em;
       text-transform: uppercase;
-      animation: heroBadgeFloat 6s ease-in-out infinite;
     }
-
-    @keyframes heroOrbit {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .promise {
+      max-width: 650px;
+      margin: 0 0 13px;
+      color: var(--teal-dark);
+      font: 600 clamp(1.35rem, 2.3vw, 2rem)/1.24 var(--serif);
     }
-
-    @keyframes heroCounterOrbit {
-      from { transform: rotate(360deg) scale(0.96); }
-      to { transform: rotate(0deg) scale(0.96); }
+    .hero-copy > p:not(.promise) {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
     }
-
-    @keyframes heroPulse {
-      0%, 100% { transform: scale(0.94); opacity: 0.26; }
-      50% { transform: scale(1.08); opacity: 0.72; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .proof-grid {
+      max-width: 680px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 28px;
     }
-
-    @keyframes heroPortraitFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    .proof {
+      min-height: 76px;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 253, 249, .76);
     }
+    .proof strong { display: block; color: var(--teal-dark); font: 700 1.35rem/1.1 var(--serif); }
+    .proof span { display: block; margin-top: 5px; color: var(--muted); font-size: .72rem; line-height: 1.25; }
 
-    @keyframes heroBadgeFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    @keyframes heroDotFloat {
-      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.62; }
-      50% { transform: translate3d(7px, -10px, 0); opacity: 1; }
-    }
-
-    @keyframes heroFlowLine {
-      0%, 100% { opacity: 0.24; transform: var(--line-transform, rotate(0deg)) scaleX(0.55); }
-      50% { opacity: 0.86; transform: var(--line-transform, rotate(0deg)) scaleX(1.08); }
-    }
-
-    /* === STATS === */
-    .stats {
-      padding: 0;
-      background: var(--grad-brand);
-      position: relative;
+    .hero-visual { position: relative; min-height: 500px; }
+    .portrait-panel {
+      position: absolute;
+      inset: 0 0 0 58px;
       overflow: hidden;
+      border: 1px solid rgba(13, 101, 105, .2);
+      border-radius: 34px;
+      background: #dfe4e3;
+      box-shadow: var(--shadow);
     }
-    .stats::before {
+    .portrait-panel::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
+      inset: auto 0 0;
+      height: 24%;
+      background: linear-gradient(transparent, rgba(8, 75, 79, .35));
     }
-
-    .stats-grid {
-      max-width: 1160px;
-      margin: 0 auto;
+    .portrait-panel img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+    .delivery-stack {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      top: 270px;
+      width: 220px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      padding: 2.8rem 2rem;
+      gap: 10px;
     }
-
-    .stat {
-      padding: 1.6rem 2rem;
-      border-right: 1px solid rgba(255,255,255,0.15);
-      transition: all var(--ease);
-      text-align: center;
+    .delivery-step {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid rgba(13, 101, 105, .18);
+      border-radius: 14px;
+      background: rgba(255, 253, 249, .96);
+      box-shadow: 0 12px 28px rgba(16, 40, 45, .12);
     }
-    .stat:last-child { border-right: none; }
-    .stat:hover { background: rgba(255,255,255,0.06); }
-
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
+    .step-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-weight: 800;
     }
+    .delivery-step strong { display: block; font-size: .78rem; }
+    .delivery-step small { display: block; color: var(--muted); font-size: .65rem; }
+    .step-state { color: var(--green); font-size: .62rem; font-weight: 800; text-transform: uppercase; }
 
-    .stat-label { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.45; }
-
-    /* === SECTIONS === */
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
-
-    section { padding: 3.8rem 0; scroll-margin-top: 6.5rem; }
-
-    .section-header { margin-bottom: 2.6rem; max-width: 720px; }
-
+    section { padding: 88px 0; }
+    .section-heading { max-width: 780px; margin-bottom: 36px; }
     .section-label {
       display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: var(--grad-brand);
-      color: #ffffff;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-      padding: 0.3rem 0.9rem;
+      padding: 7px 12px;
       border-radius: 999px;
+      background: var(--teal);
+      color: white;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
-    /* Dark section label variant */
-    .dark-section .section-label {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
+    h2 { margin: 15px 0 10px; font: 600 clamp(2rem, 4vw, 3.3rem)/1.08 var(--serif); letter-spacing: -.03em; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 1rem; }
 
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.2;
-      letter-spacing: -0.015em;
-    }
-
-    /* === EXPERIENCE TIMELINE === */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-      display: grid;
-      gap: 1.3rem;
-    }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 0.55rem;
-      top: 0.6rem;
-      bottom: 0.6rem;
-      width: 2px;
-      background: linear-gradient(180deg, var(--accent), var(--amber));
-      opacity: 0.35;
-    }
-
-    .experience-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.9rem 2.1rem;
-      transition: all var(--ease);
-      position: relative;
-      box-shadow: var(--shadow-sm);
-    }
-    .experience-card::before {
-      content: "";
-      position: absolute;
-      left: -2.05rem;
-      top: 1.55rem;
-      width: 0.95rem;
-      height: 0.95rem;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--accent-line);
-    }
-    .experience-card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-
-    .experience-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.2rem;
-    }
-
-    .experience-role {
-      font-family: var(--font-display);
-      font-size: 1.32rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .experience-period {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--amber);
-      white-space: nowrap;
-      letter-spacing: 0.03em;
-    }
-
-    .experience-company { color: var(--accent-deep); font-weight: 600; margin-bottom: 0.2rem; }
-
-    .experience-meta {
-      color: var(--ink-mute);
-      font-size: 0.85rem;
-      margin-bottom: 0.9rem;
-      letter-spacing: 0.02em;
-    }
-
-    .experience-points { list-style: none; display: grid; gap: 0.55rem; }
-    .experience-points li {
-      display: flex;
-      gap: 0.7rem;
-      align-items: flex-start;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .experience-points li::before {
-      content: "→";
-      color: var(--accent);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* === DARK SECTION === */
-    .dark-section {
-      background: var(--dark-bg);
-      position: relative;
-    }
-    .dark-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(109,40,217,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 35% at 10% 80%, rgba(13,92,99,0.12) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .dark-section .section-title { color: var(--ink); }
-    .dark-section .container { position: relative; z-index: 1; }
-
-    /* === PROJECTS === */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.4rem;
-    }
-
-    .project-card {
-      background: var(--dark-surface);
-      border: 1px solid var(--dark-border);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-      transition: all var(--ease);
+    .programs { background: var(--paper-2); }
+    .program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .program-card {
+      min-height: 330px;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      backdrop-filter: blur(12px);
-    }
-    .project-card:hover {
-      border-color: rgba(167,139,250,0.5);
-      box-shadow: 0 0 0 1px rgba(167,139,250,0.3), 0 20px 40px rgba(22,34,46,0.12);
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.9);
-    }
-
-    .project-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: flex-start;
-      gap: 0.65rem 0.75rem;
-    }
-
-    .project-header > div { min-width: 0; }
-
-    .project-company {
-      color: var(--amber);
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .project-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-top: 0.35rem;
-      letter-spacing: -0.01em;
-    }
-
-    .project-meta { color: var(--ink-mute); font-size: 0.85rem; }
-
-    .project-point { font-size: 0.95rem; line-height: 1.6; color: var(--ink-soft); }
-    .project-point strong { color: var(--accent-deep); font-weight: 700; }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid var(--dark-border);
-    }
-
-    .tag {
-      background: var(--violet-soft);
-      color: var(--violet-deep);
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      border: 1px solid var(--violet-line);
-    }
-
-    .status-badge {
-      padding: 0.32rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .status-closed { background: rgba(21, 128, 61, 0.12); color: #166534; border: 1px solid rgba(21, 128, 61, 0.3); }
-    .status-active { background: rgba(180, 83, 9, 0.12); color: #92400e; border: 1px solid rgba(180, 83, 9, 0.3); }
-
-    .status-hypercare { background: rgba(13, 92, 99, 0.1); color: var(--accent-deep); border: 1px solid var(--accent-line); }
-
-    /* === CERTIFICATIONS === */
-    .cert-feature {
-      background: linear-gradient(120deg, var(--accent-deep) 0%, var(--accent) 100%);
+      padding: 28px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      color: #ffffff;
-      padding: 2.2rem 2.4rem;
-      margin-bottom: 1.4rem;
-      display: flex;
-      justify-content: space-between;
+      background: var(--surface);
+      box-shadow: 0 14px 34px rgba(16, 40, 45, .05);
+    }
+    .program-meta { display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: .76rem; font-weight: 700; }
+    .program-company { color: var(--amber); letter-spacing: .08em; text-transform: uppercase; }
+    .program-card h3 { margin: 12px 0 18px; font: 700 1.55rem/1.15 var(--serif); }
+    .outcome {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--teal);
+      border-radius: 0 12px 12px 0;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-size: .96rem;
+      font-weight: 700;
+    }
+    .program-card ul { margin: 0; padding-left: 19px; color: var(--muted); font-size: .91rem; }
+    .program-card li + li { margin-top: 7px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 20px; }
+    .tag { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--teal-dark); background: #f3f8f7; font-size: .7rem; font-weight: 700; }
+
+    .experience-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 50px; align-items: start; }
+    .experience-intro { position: sticky; top: 110px; }
+    .role-list { display: grid; gap: 14px; }
+    .role-card { padding: 24px 26px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+    .role-top { display: flex; justify-content: space-between; gap: 20px; }
+    .role-card h3 { margin: 0; font: 700 1.25rem/1.2 var(--serif); }
+    .role-card time { flex: 0 0 auto; color: var(--amber); font-size: .75rem; font-weight: 800; }
+    .role-card strong { display: block; margin: 7px 0 9px; color: var(--teal-dark); font-size: .86rem; }
+    .role-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .credentials { background: #153d42; color: white; }
+    .credentials .section-label { color: var(--teal-dark); background: #dff1ee; }
+    .credentials .section-heading p { color: rgba(255,255,255,.76); }
+    .credential-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; }
+    .pmp-card, .skills-card { padding: 28px; border: 1px solid rgba(255,255,255,.16); border-radius: 24px; background: rgba(255,255,255,.07); }
+    .pmp-card strong { display: block; font: 700 2rem/1.15 var(--serif); }
+    .pmp-card p { color: rgba(255,255,255,.76); }
+    .pmp-seal { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #dff1ee; color: var(--teal-dark); font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+    .skills-card h3 { margin: 0 0 18px; font: 700 1.4rem var(--serif); }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-pills span { padding: 7px 10px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(255,255,255,.09); font-size: .78rem; }
+    .training-details { margin-top: 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 20px; background: rgba(255,255,255,.05); }
+    .training-details summary { padding: 18px 22px; cursor: pointer; font-weight: 700; }
+    .training-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 22px 22px; }
+    .training-item { padding: 12px; border-radius: 12px; background: rgba(255,255,255,.08); }
+    .training-item strong { display: block; font-size: .78rem; line-height: 1.35; }
+    .training-item span { color: rgba(255,255,255,.67); font-size: .68rem; }
+
+    .education { background: var(--paper-2); }
+    .education-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .education-card { padding: 26px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+    .education-card h3 { margin: 0 0 8px; font: 700 1.2rem/1.3 var(--serif); }
+    .education-card strong { display: block; color: var(--teal-dark); font-size: .88rem; }
+    .education-card span { color: var(--muted); font-size: .78rem; }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      box-shadow: var(--shadow-md);
+      gap: 30px;
+      padding: 44px;
+      border-radius: 30px;
+      background: var(--teal);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .contact-card h2 { margin-top: 0; }
+    .contact-card p { margin: 0; color: rgba(255,255,255,.8); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-card .button-primary { background: var(--amber-soft); color: var(--amber); }
+    .contact-card .button-secondary { border-color: rgba(255,255,255,.45); color: white; }
+    footer { padding: 28px 0 40px; color: var(--muted); text-align: center; font-size: .8rem; }
+    footer a { color: var(--teal-dark); font-weight: 700; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .nav-shell { grid-template-columns: 1fr auto; height: 64px; gap: 10px; }
+      .header-actions { justify-self: end; }
+      .menu-button { display: inline-grid; place-items: center; }
+      .button-compact { min-height: 40px; padding: 0 15px; }
+      .primary-nav {
+        display: none;
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: 72px;
+        z-index: 30;
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+      .primary-nav a { min-height: 48px; display: flex; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--line); }
+      .primary-nav a:last-child { border-bottom: 0; }
+      body.menu-open .primary-nav { display: flex; }
+      .hero-shell { min-height: auto; padding: 30px 0 38px; display: block; }
+      .hero-topline { min-height: 94px; }
+      .mobile-headshot {
+        display: block;
+        width: 92px;
+        height: 92px;
+        flex: 0 0 auto;
+        object-fit: cover;
+        object-position: center 20%;
+        border: 3px solid white;
+        border-radius: 50%;
+        box-shadow: 0 10px 28px rgba(16,40,45,.18);
+      }
+      .hero-visual { display: none; }
+      h1 { max-width: 560px; margin-top: 14px; font-size: clamp(2.45rem, 11vw, 4rem); }
+      .promise { font-size: 1.25rem; }
+      .hero-copy > p:not(.promise) { font-size: .92rem; }
+      .hero-actions { margin-top: 20px; }
+      .proof-grid { margin-top: 20px; }
+      section { padding: 64px 0; }
+      .program-grid, .credential-grid, .education-grid { grid-template-columns: 1fr; }
+      .experience-grid { grid-template-columns: 1fr; gap: 28px; }
+      .experience-intro { position: static; }
+      .training-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-card { grid-template-columns: 1fr; padding: 30px; }
     }
 
-    .cert-feature-title {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 32px, 1180px); }
+      .brand { font-size: 1.18rem; }
+      .availability { max-width: 220px; padding: 6px 9px; font-size: .62rem; line-height: 1.35; }
+      .hero-shell { padding-top: 20px; }
+      h1 { font-size: 2.42rem; line-height: 1.01; }
+      h1 .credential-line { font-size: .73rem; }
+      .promise { margin-bottom: 9px; font-size: 1.12rem; }
+      .proof-grid { gap: 6px; }
+      .proof { min-height: 70px; padding: 11px 8px; }
+      .proof strong { font-size: 1.12rem; }
+      .proof span { font-size: .61rem; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .button { min-height: 44px; padding: 0 12px; font-size: .82rem; }
+      section { padding: 52px 0; }
+      .section-heading { margin-bottom: 24px; }
+      .program-card { min-height: 0; padding: 22px; }
+      .program-meta { align-items: flex-start; flex-direction: column; gap: 3px; }
+      .role-top { flex-direction: column; gap: 6px; }
+      .training-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 26px 22px; }
     }
-
-    .cert-feature-detail { font-size: 0.95rem; opacity: 0.92; }
-
-    .cert-feature-badge {
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 999px;
-      padding: 0.55rem 1.25rem;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-
-    .cert-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
-      transition: all var(--ease);
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-    .cert-card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-sm);
-      transform: translateY(-3px);
-    }
-
-    .cert-name { font-weight: 600; color: var(--ink); font-size: 0.95rem; line-height: 1.45; }
-    .cert-issuer { color: var(--ink-mute); font-size: 0.83rem; }
-
-    /* === COMPETENCIES === */
-    .competencies {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.4rem;
-    }
-
-    .competency-group {
-      background: var(--surface);
-      padding: 2rem 2.1rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      border-top: 3px solid;
-      border-image: var(--grad-brand) 1;
-      transition: all var(--ease);
-      backdrop-filter: blur(8px);
-    }
-    .competency-group:hover {
-      background: var(--accent-soft);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-4px);
-    }
-
-    .competency-title {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 1.1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .competency-list { list-style: none; display: grid; gap: 0.7rem; }
-    .competency-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-    .competency-list li::before {
-      content: "✓";
-      color: var(--accent-deep);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* === EDUCATION === */
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.4rem;
-    }
-
-    .education-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--amber);
-      border-radius: var(--radius);
-      padding: 1.8rem 2rem;
-      transition: all var(--ease);
-    }
-    .education-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-
-    .education-title {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
-      line-height: 1.35;
-    }
-    .education-school { color: var(--accent-deep); font-weight: 600; margin-bottom: 0.3rem; }
-    .education-meta { color: var(--ink-mute); font-size: 0.87rem; }
-
-    /* === TOOLKIT === */
-    .toolkit-pills { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-
-    .pill {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      transition: all var(--ease);
-    }
-    .pill:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent-deep);
-    }
-
-    /* === CONTACT === */
-    .contact-section {
-      background: var(--grad-brand);
-      color: #f4f6f8;
-      text-align: center;
-      padding: 5rem 2rem;
-      border-radius: calc(var(--radius) + 6px);
-      margin-top: 1rem;
-      box-shadow: 0 20px 60px rgba(109,40,217,0.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-section::before {
-      content: "";
-      position: absolute;
-      top: -40%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .contact-section::after {
-      content: "";
-      position: absolute;
-      bottom: -45%;
-      left: -8%;
-      width: 440px;
-      height: 440px;
-      background: radial-gradient(circle, rgba(245,158,11,0.2) 0%, transparent 65%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .contact-section h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3vw, 2.2rem);
-      font-weight: 600;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-      position: relative;
-      z-index: 1;
-      color: #ffffff;
-    }
-
-    .contact-section p {
-      margin: 0 auto 2.2rem;
-      max-width: 620px;
-      opacity: 0.92;
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn-contact {
-      background: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      padding: 0.78rem 1.7rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all var(--ease);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(6px);
-    }
-    .btn-contact:hover {
-      background: rgba(255, 255, 255, 0.28);
-      border-color: rgba(255, 255, 255, 0.7);
-      transform: translateY(-2px);
-    }
-    .btn-contact-primary {
-      background: var(--amber-vivid);
-      border-color: transparent;
-      color: var(--ink);
-      box-shadow: 0 4px 20px rgba(245,158,11,0.4);
-    }
-    .btn-contact-primary:hover {
-      background: #fbbf24;
-      box-shadow: 0 6px 28px rgba(245,158,11,0.55);
-    }
-
-    /* === FOOTER === */
-    footer {
-      background: var(--dark-bg);
-      color: var(--ink-mute);
-      text-align: center;
-      padding: 2.4rem 2rem;
-      font-size: 0.95rem;
-      margin-top: 0;
-      border-top: 1px solid var(--border);
-    }
-    footer a {
-      color: var(--accent-deep);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color var(--ease);
-    }
-    footer a:hover { color: var(--violet); }
-
-    .reveal {
-      --reveal-delay: 0ms;
-      opacity: 0;
-      transform: translateY(20px);
-      filter: blur(8px);
-      transition:
-        opacity 0.7s cubic-bezier(0.2, 0.75, 0.25, 1),
-        transform 0.7s cubic-bezier(0.2, 0.75, 0.25, 1),
-        filter 0.7s cubic-bezier(0.2, 0.75, 0.25, 1);
-      transition-delay: var(--reveal-delay);
-    }
-    .reveal.in-view { opacity: 1; transform: translateY(0); filter: blur(0); }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .hero-motion-orbit,
-      .hero-motion-pulse,
-      .hero-motion-dot,
-      .hero-flow-line,
-      .hero-portrait,
-      .hero-credential {
-        animation: none !important;
-      }
-      .reveal { opacity: 1; transform: none; filter: none; transition: none; transition-delay: 0ms; }
-      * { transition-duration: 0.01ms !important; }
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 980px) {
-      .header-content {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-          "logo action"
-          "nav nav";
-        row-gap: 0.6rem;
-      }
-
-      .logo { grid-area: logo; justify-self: start; }
-      header .btn { grid-area: action; justify-self: end; }
-
-      .nav {
-        grid-area: nav;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 880px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2.4rem;
-        text-align: center;
-      }
-      .hero-visual { order: -1; }
-      .hero-description { margin-left: auto; margin-right: auto; }
-      .hero-buttons, .hero-facts { justify-content: center; }
-      .hero-flow-line { width: 76px; }
-    }
-
-    @media (max-width: 768px) {
-      .header-content { gap: 0.8rem; padding: 0.9rem 1rem; }
-      .nav { justify-content: center; gap: 1rem; }
-      .hero { padding: 2.8rem 1.2rem 2.4rem; }
-      .stats { padding: 1.2rem 1.2rem 2.4rem; }
-      section { padding: 2.8rem 0; }
-      .container { padding: 0 1.2rem; }
-      .timeline { padding-left: 1.8rem; }
-      .experience-card { padding: 1.5rem 1.4rem; }
-      .experience-card::before { left: -1.8rem; }
-      .cert-feature { padding: 1.8rem 1.6rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-header { grid-template-columns: minmax(0, 1fr) auto; }
-    }
-
-    @media (max-width: 560px) {
-      .header-content {
-        gap: 0.55rem 1rem;
-        padding: 0.65rem 1rem;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.45rem 0.85rem;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .nav a { font-size: 0.82rem; }
-      header .btn { padding: 0.52rem 0.95rem; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-
-<!-- === HEADER === -->
-<header>
-  <div class="header-content">
-    <a class="logo" href="#main-content">Chaitanya<span>.</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Programs</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#competencies">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#toolkit">Toolkit</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Resume</a>
-  </div>
-</header>
-
-<main id="main-content">
-<!-- === HERO === -->
-<div class="hero">
-  <canvas id="gravity-grid" aria-hidden="true"></canvas>
-  <div id="gravity-shimmer" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-kicker"><span class="dot"></span>Open to Work · Greater Toronto Area · On-site / Hybrid / Remote</div>
-      <h1>Delivery that stays <em>on schedule</em>, stakeholders that stay <em>aligned</em>.</h1>
-      <div class="hero-role">PMP® Certified Technical Project Coordinator — Agile Delivery, PMO Support &amp; Operational Execution</div>
-      <p class="hero-description">I coordinate cross-functional implementation programs end to end: sprint cadence and schedules in Jira, RAID tracking with real accountability, UAT-to-hypercare execution, and AI-enabled process optimization that keeps delivery predictable.</p>
-      <div class="hero-facts">
-        <span><strong>PMP®</strong> · PMI Credential 4366477</span>
-        <span><strong>Markham,</strong> Ontario, Canada</span>
-        <span><strong>11</strong> Licenses &amp; Certifications</span>
-      </div>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="#main-content">Chaitanya<span>.</span></a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <a href="#programs">Delivery work</a>
+        <a href="#experience">Experience</a>
+        <a href="#credentials">Credentials &amp; skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button-primary button-compact" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">☰</button>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-motion-layer" aria-hidden="true">
-        <span class="hero-motion-pulse"></span>
-        <span class="hero-motion-orbit hero-motion-orbit-primary"></span>
-        <span class="hero-motion-orbit hero-motion-orbit-secondary"></span>
-        <span class="hero-motion-dot dot-one"></span>
-        <span class="hero-motion-dot dot-two"></span>
-        <span class="hero-motion-dot dot-three"></span>
-        <span class="hero-motion-dot dot-four"></span>
-        <span class="hero-flow-line line-one"></span>
-        <span class="hero-flow-line line-two"></span>
-        <span class="hero-flow-line line-three"></span>
-      </div>
-      <div class="hero-portrait">
-        <picture>
-          <source srcset="assets/headshot.webp" type="image/webp">
-          <img src="assets/headshot.png" alt="Headshot portrait of Chaitanya Mukkollu">
-        </picture>
-      </div>
-      <div class="hero-credential">PMP® Certified</div>
-    </div>
-  </div>
-</div>
+  </header>
 
-<!-- === STATS === -->
-<div class="stats">
-  <div class="stats-grid">
-    <div class="stat reveal">
-      <div class="stat-number">5+ yrs</div>
-      <div class="stat-label">Project coordination and delivery experience across consulting and heavy industry</div>
-    </div>
-    <div class="stat reveal">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Concurrent implementation programs coordinated through go-live and hypercare</div>
-    </div>
-    <div class="stat reveal">
-      <div class="stat-number">35+</div>
-      <div class="stat-label">UAT scenarios triaged with severity tracking and retest evidence</div>
-    </div>
-    <div class="stat reveal">
-      <div class="stat-number">11</div>
-      <div class="stat-label">Licenses and certifications including PMP®, Agile, Jira, and generative AI for PM</div>
-    </div>
-  </div>
-</div>
-
-<!-- === EXPERIENCE === -->
-<section id="experience">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Career Timeline</div>
-      <h2 class="section-title">Professional Experience</h2>
-    </div>
-
-    <div class="timeline">
-      <div class="experience-card reveal">
-        <div class="experience-top">
-          <div class="experience-role">Technical Project Coordinator</div>
-          <div class="experience-period">Jan 2025 — Present</div>
-        </div>
-        <div class="experience-company">Tech Rangers Consulting Services Inc</div>
-        <div class="experience-meta">Contract Full-time · Toronto, ON · Remote</div>
-        <ul class="experience-points">
-          <li>Coordinate Agile project delivery across cross-functional teams, including developers and business stakeholders.</li>
-          <li>Manage schedules, sprint activities, and deliverables using Jira and Microsoft Teams.</li>
-          <li>Ensure visibility and accountability by tracking risks, issues, and dependencies across concurrent workstreams.</li>
-          <li>Drive UAT severity triage, go-live readiness, and structured hypercare handoffs to run-state operations.</li>
-        </ul>
-      </div>
-
-      <div class="experience-card reveal">
-        <div class="experience-top">
-          <div class="experience-role">Senior Engineer — Product Support</div>
-          <div class="experience-period">Aug 2019 — Sep 2022</div>
-        </div>
-        <div class="experience-company">GMMCO Ltd (Caterpillar Dealer)</div>
-        <div class="experience-meta">Permanent Full-time · Hyderabad, India · On-site</div>
-        <ul class="experience-points">
-          <li>Coordinated end-to-end execution of mining equipment projects across teams, enhancing collaboration and efficiency.</li>
-          <li>Developed standardized workflows and deployment processes, improving operational efficiency and reducing downtime.</li>
-          <li>Managed project registers tracking scope, timelines, risks, and dependencies to keep delivery aligned and accountable.</li>
-        </ul>
-      </div>
-
-      <div class="experience-card reveal">
-        <div class="experience-top">
-          <div class="experience-role">Rapid Prototyping Engineer</div>
-          <div class="experience-period">Dec 2018 — Jun 2019</div>
-        </div>
-        <div class="experience-company">Maker Global — 3D Printing</div>
-        <div class="experience-meta">Internship · Hyderabad, India · On-site</div>
-        <ul class="experience-points">
-          <li>Delivered SolidWorks models and rapid prototypes for client projects while supporting fast engineering and design cycles.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === PROGRAMS === -->
-<section id="projects" class="dark-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Selected Program Snapshots</div>
-      <h2 class="section-title">Delivery Leadership Across Key Programs</h2>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div>
-            <div class="project-company">Northstar Facilities Group</div>
-            <div class="project-title">CRM Implementation</div>
+  <main id="main-content">
+    <div class="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-copy">
+          <div class="hero-topline">
+            <div class="availability">Open to work · Greater Toronto Area</div>
+            <img class="mobile-headshot" src="assets/headshot.webp" alt="Chaitanya Mukkollu">
           </div>
-          <span class="status-badge status-closed">Closed</span>
-        </div>
-        <div class="project-meta">Jan 2025 — Dec 2025</div>
-        <p class="project-point"><strong>Challenge:</strong> Coordinate CRM workflow delivery across overlapping business and technical streams.</p>
-        <p class="project-point"><strong>Action:</strong> Established cross-stream RAID governance, weekly coordination forums, and UAT severity triage with retest evidence.</p>
-        <p class="project-point"><strong>Result:</strong> Clean UAT closure, controlled launch, and structured hypercare handoff to BAU.</p>
-        <div class="project-tags">
-          <span class="tag">CRM</span>
-          <span class="tag">UAT Governance</span>
-          <span class="tag">RAID</span>
-          <span class="tag">Hypercare</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div>
-            <div class="project-company">MapleLeaf Healthcare Services</div>
-            <div class="project-title">HR &amp; IT Asset Workflow</div>
+          <h1><span class="credential-line">PMP® certified</span>Technical Project Coordinator</h1>
+          <p class="promise">Clear plans. Visible risks. Steady go-lives.</p>
+          <p>I coordinate implementation programs from sprint planning and RAID governance through UAT, launch, and structured hypercare.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#programs">View delivery work ↓</a>
+            <a class="button button-secondary" href="#contact">Contact me</a>
           </div>
-          <span class="status-badge status-closed">Closed</span>
-        </div>
-        <div class="project-meta">Apr 2025 — Jan 2026</div>
-        <p class="project-point"><strong>Challenge:</strong> Align HR and IT asset workflows with approval chains across regulated environments.</p>
-        <p class="project-point"><strong>Action:</strong> Mapped ownership matrices end-to-end; ran joint cadence with HR, IT, and compliance to lock decisions before build.</p>
-        <p class="project-point"><strong>Result:</strong> Structured handover with clear accountability across every role gate.</p>
-        <div class="project-tags">
-          <span class="tag">HR Systems</span>
-          <span class="tag">IT Asset</span>
-          <span class="tag">RACI</span>
-          <span class="tag">Compliance</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div>
-            <div class="project-company">Aurora Retail Logistics</div>
-            <div class="project-title">Procurement Workflow</div>
+          <div class="proof-grid" aria-label="Career proof points">
+            <div class="proof"><strong>5+ years</strong><span>Technical delivery and coordination</span></div>
+            <div class="proof"><strong>4 programs</strong><span>Coordinated through launch</span></div>
+            <div class="proof"><strong>35+ UAT</strong><span>Scenarios triaged and retested</span></div>
           </div>
-          <span class="status-badge status-hypercare">Hypercare</span>
         </div>
-        <div class="project-meta">Jul 2025 — Mar 2026</div>
-        <p class="project-point"><strong>Challenge:</strong> Manage procurement implementation under shifting requirements and seasonal pressure.</p>
-        <p class="project-point"><strong>Action:</strong> Tightened change traceability with impact-assessed CRs and rolling delivery dashboards; surfaced risk to steering committee before slippage.</p>
-        <p class="project-point"><strong>Result:</strong> Improved visibility and predictability across stakeholders through go-live and hypercare.</p>
-        <div class="project-tags">
-          <span class="tag">Procurement</span>
-          <span class="tag">Change Control</span>
-          <span class="tag">SteerCo</span>
-          <span class="tag">Reporting</span>
-        </div>
-      </div>
 
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div>
-            <div class="project-company">SummitCare Managed Services</div>
-            <div class="project-title">Ticketing &amp; SLA Governance</div>
+        <div class="hero-visual" aria-label="Portrait and delivery workflow">
+          <div class="portrait-panel"><img src="assets/headshot.webp" alt="Headshot portrait of Chaitanya Mukkollu"></div>
+          <div class="delivery-stack" aria-hidden="true">
+            <div class="delivery-step"><span class="step-icon">01</span><span><strong>Plan</strong><small>Cadence &amp; scope</small></span><span class="step-state">Ready</span></div>
+            <div class="delivery-step"><span class="step-icon">02</span><span><strong>Control</strong><small>RAID &amp; UAT</small></span><span class="step-state">Visible</span></div>
+            <div class="delivery-step"><span class="step-icon">03</span><span><strong>Launch</strong><small>Go-live &amp; handoff</small></span><span class="step-state">Steady</span></div>
           </div>
-          <span class="status-badge status-active">Active</span>
-        </div>
-        <div class="project-meta">Oct 2025 — May 2026</div>
-        <p class="project-point"><strong>Challenge:</strong> Establish ticketing and SLA governance with clean escalation pathways for managed-services launch.</p>
-        <p class="project-point"><strong>Action:</strong> Built tiered escalation playbooks, SLA dashboards, and structured handover to run-state operations.</p>
-        <p class="project-point"><strong>Result:</strong> Stable transition from project delivery; SLAs holding in early operations.</p>
-        <div class="project-tags">
-          <span class="tag">ITSM</span>
-          <span class="tag">SLA Design</span>
-          <span class="tag">Escalation</span>
-          <span class="tag">Run-state</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- === CERTIFICATIONS === -->
-<section id="certifications">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Licenses &amp; Certifications</div>
-      <h2 class="section-title">Credentials That Back the Delivery</h2>
-    </div>
-
-    <div class="cert-feature reveal">
-      <div>
-        <div class="cert-feature-title">Project Management Professional (PMP)®</div>
-        <div class="cert-feature-detail">Project Management Institute · Issued Apr 2026 · Expires Apr 2029 · Credential ID 4366477</div>
+    <section class="programs" id="programs">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-label">Selected delivery snapshots</span>
+          <h2>Evidence before adjectives.</h2>
+          <p>Outcome-first program summaries make the work easier to scan. Dates replace ambiguous live-status badges.</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card">
+            <div class="program-meta"><span class="program-company">Northstar Facilities Group</span><span>Jan–Dec 2025</span></div>
+            <h3>CRM Implementation</h3>
+            <div class="outcome">Clean UAT closure, controlled launch, and a structured handoff to BAU.</div>
+            <ul><li>Established cross-stream RAID governance and weekly coordination.</li><li>Managed severity triage with retest evidence through go-live.</li></ul>
+            <div class="tags"><span class="tag">CRM</span><span class="tag">RAID</span><span class="tag">UAT governance</span></div>
+          </article>
+          <article class="program-card">
+            <div class="program-meta"><span class="program-company">MapleLeaf Healthcare Services</span><span>Apr 2025–Jan 2026</span></div>
+            <h3>HR &amp; IT Asset Workflow</h3>
+            <div class="outcome">A structured handoff with clear accountability across every approval gate.</div>
+            <ul><li>Mapped ownership and approval matrices end to end.</li><li>Aligned HR, IT, and compliance decisions before build.</li></ul>
+            <div class="tags"><span class="tag">RACI</span><span class="tag">HR systems</span><span class="tag">Compliance</span></div>
+          </article>
+          <article class="program-card">
+            <div class="program-meta"><span class="program-company">Aurora Retail Logistics</span><span>Jul 2025–Mar 2026</span></div>
+            <h3>Procurement Workflow</h3>
+            <div class="outcome">Greater visibility and predictability through go-live and hypercare.</div>
+            <ul><li>Tightened change traceability with impact-assessed requests.</li><li>Surfaced schedule risk before it became delivery slippage.</li></ul>
+            <div class="tags"><span class="tag">Change control</span><span class="tag">SteerCo</span><span class="tag">Reporting</span></div>
+          </article>
+          <article class="program-card">
+            <div class="program-meta"><span class="program-company">SummitCare Managed Services</span><span>Oct 2025–May 2026</span></div>
+            <h3>Ticketing &amp; SLA Governance</h3>
+            <div class="outcome">Stable transition from project delivery into run-state operations.</div>
+            <ul><li>Built tiered escalation playbooks and SLA dashboards.</li><li>Structured the operating handoff around clear ownership.</li></ul>
+            <div class="tags"><span class="tag">ITSM</span><span class="tag">SLA design</span><span class="tag">Operations</span></div>
+          </article>
+        </div>
       </div>
-      <div class="cert-feature-badge">PMI Certified</div>
-    </div>
+    </section>
 
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-name">Agile Project Management with Jira Cloud: 1 — Projects, Boards, and Issues</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
+    <section id="experience">
+      <div class="wrap experience-grid">
+        <div class="experience-intro section-heading">
+          <span class="section-label">Experience</span>
+          <h2>Delivery across software and industry.</h2>
+          <p>The timeline stays concise while the program section carries the detailed evidence.</p>
+        </div>
+        <div class="role-list">
+          <article class="role-card"><div class="role-top"><h3>Technical Project Coordinator</h3><time>2025–Present</time></div><strong>Tech Rangers Consulting Services Inc</strong><p>Coordinate Agile delivery, schedules, dependencies, UAT readiness, go-live, and hypercare across concurrent workstreams.</p></article>
+          <article class="role-card"><div class="role-top"><h3>Senior Engineer — Product Support</h3><time>2019–2022</time></div><strong>GMMCO Ltd · Caterpillar Dealer</strong><p>Coordinated mining-equipment projects and standardized workflows, deployment processes, and project registers.</p></article>
+          <article class="role-card"><div class="role-top"><h3>Rapid Prototyping Engineer</h3><time>2018–2019</time></div><strong>Maker Global · 3D Printing</strong><p>Delivered SolidWorks models and prototypes through fast engineering and client design cycles.</p></article>
+        </div>
       </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Agile Project Management with Jira Cloud: 2 — Lean and Agile Processes</div>
-        <div class="cert-issuer">LinkedIn · Feb 2026</div>
+    </section>
+
+    <section class="credentials" id="credentials">
+      <div class="wrap">
+        <div class="section-heading"><span class="section-label">Credentials &amp; skills</span><h2>One strong credential. One clear capability map.</h2><p>Secondary training and tools are available without becoming another wall of cards.</p></div>
+        <div class="credential-grid">
+          <div class="pmp-card"><span class="pmp-seal">PMI certified</span><p>Project Management Professional</p><strong>PMP®</strong><p>Credential 4366477 · Valid through April 2029</p></div>
+          <div class="skills-card"><h3>Delivery toolkit</h3><div class="skill-pills"><span>Jira</span><span>Confluence</span><span>MS Project</span><span>Azure DevOps</span><span>ServiceNow</span><span>Power BI</span><span>RAID governance</span><span>UAT</span><span>Change control</span><span>Hypercare</span><span>Stakeholder alignment</span><span>Generative AI for PM</span></div></div>
+        </div>
+        <details class="training-details">
+          <summary>View selected additional credentials</summary>
+          <div class="training-grid">
+            <div class="training-item"><strong>Agile Project Management with Jira Cloud: Projects, Boards, and Issues</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Agile Project Management with Jira Cloud: Lean and Agile Processes</strong><span>LinkedIn · Feb 2026</span></div>
+            <div class="training-item"><strong>Agile Foundations</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Leveraging Generative AI for Project Management</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Project Management: Preventing Scope Creep</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Power BI Essential Training</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Looker Studio for Beginners</strong><span>LinkedIn · Oct 2024</span></div>
+            <div class="training-item"><strong>Leading in Government</strong><span>LinkedIn · Feb 2026</span></div>
+            <div class="training-item"><strong>Essentials of Team Collaboration</strong><span>LinkedIn · Nov 2024</span></div>
+          </div>
+        </details>
       </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Agile Foundations</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
+    </section>
+
+    <section class="education" id="education">
+      <div class="wrap">
+        <div class="section-heading"><span class="section-label">Education</span><h2>Technical roots. Delivery focus.</h2></div>
+        <div class="education-grid">
+          <article class="education-card"><h3>Advanced Project Management &amp; Strategic Leadership</h3><strong>Sault College of Applied Arts and Technology</strong><span>Ontario College Graduate Certificate · 2023–2025</span></article>
+          <article class="education-card"><h3>Bachelor of Technology, Mechanical Engineering</h3><strong>ICFAI Foundation for Higher Education</strong><span>Hyderabad · 2015–2019</span></article>
+        </div>
       </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Leveraging Generative AI for Project Management</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-card">
+        <div><h2>Need a steady hand on delivery?</h2><p>Open to Project Coordinator, PMO, and technical delivery opportunities across the Greater Toronto Area.</p></div>
+        <div class="contact-actions"><a class="button button-primary" href="mailto:chku871@gmail.com">Start a conversation</a><a class="button button-secondary" href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
       </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Project Management: Preventing Scope Creep</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Power BI Essential Training</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Looker Studio for Beginners</div>
-        <div class="cert-issuer">LinkedIn · Oct 2024</div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Leading in Government</div>
-        <div class="cert-issuer">LinkedIn · Feb 2026</div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Essentials of Team Collaboration</div>
-        <div class="cert-issuer">LinkedIn · Nov 2024</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- === COMPETENCIES === -->
-<section id="competencies" class="dark-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Core Competencies</div>
-      <h2 class="section-title">What I Bring to Your Delivery Programs</h2>
-    </div>
+  <footer><div class="wrap">Chaitanya Kumar Mukkollu · PMP® Certified Technical Project Coordinator · Markham, Ontario · <a href="mailto:chku871@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></footer>
 
-    <div class="competencies">
-      <div class="competency-group reveal">
-        <div class="competency-title">Agile Delivery &amp; Coordination</div>
-        <ul class="competency-list">
-          <li>PMP-aligned governance and delivery controls</li>
-          <li>Sprint planning, schedules, and deliverable tracking in Jira</li>
-          <li>Coordination across concurrent workstreams</li>
-          <li>Go-live readiness and implementation support</li>
-          <li>UAT triage and post-implementation stabilization</li>
-        </ul>
-      </div>
+  <script>
+    (function () {
+      var button = document.querySelector('.menu-button');
+      var nav = document.getElementById('primary-nav');
+      if (!button || !nav) return;
 
-      <div class="competency-group reveal">
-        <div class="competency-title">Stakeholder &amp; Vendor Management</div>
-        <ul class="competency-list">
-          <li>Cross-functional team coordination — developers to executives</li>
-          <li>Vendor accountability and follow-through</li>
-          <li>Customer communication and expectation management</li>
-          <li>Escalation handling with clear context</li>
-          <li>Distributed and remote team alignment</li>
-        </ul>
-      </div>
-
-      <div class="competency-group reveal">
-        <div class="competency-title">PMO Support, Reporting &amp; Controls</div>
-        <ul class="competency-list">
-          <li>RAID logs, risk registers, and dependency tracking</li>
-          <li>Status reporting and KPI dashboards (Power BI, Looker Studio)</li>
-          <li>SOW-aligned proposal and quote preparation</li>
-          <li>Budget and tracker maintenance</li>
-          <li>Audit-ready records and change logs</li>
-        </ul>
-      </div>
-
-      <div class="competency-group reveal">
-        <div class="competency-title">AI Implementation &amp; Process Optimization</div>
-        <ul class="competency-list">
-          <li>Generative AI applied to project management workflows</li>
-          <li>Process standardization and workflow design</li>
-          <li>Excel dashboards and structured reporting automation</li>
-          <li>CRM workflow tracking and data hygiene</li>
-          <li>SolidWorks, AutoCAD, and BOM support from an engineering base</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === EDUCATION === -->
-<section id="education">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Education</div>
-      <h2 class="section-title">Academic Background</h2>
-    </div>
-    <div class="education-grid">
-      <div class="education-card reveal">
-        <div class="education-title">Ontario College Graduate Certificate — Advanced Project Management &amp; Strategic Leadership</div>
-        <div class="education-school">Sault College of Applied Arts and Technology</div>
-        <div class="education-meta">Sep 2023 — Apr 2025 · Ontario, Canada</div>
-      </div>
-      <div class="education-card reveal">
-        <div class="education-title">Bachelor of Technology, Mechanical Engineering</div>
-        <div class="education-school">ICFAI Foundation for Higher Education, Hyderabad</div>
-        <div class="education-meta">2015 — 2019 · Grade: 7.5</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === TOOLKIT === -->
-<section id="toolkit">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Technical Toolkit</div>
-      <h2 class="section-title">Tools I Use Daily</h2>
-    </div>
-    <div class="toolkit-pills">
-      <span class="pill reveal">Jira</span>
-      <span class="pill reveal">Confluence</span>
-      <span class="pill reveal">MS Project</span>
-      <span class="pill reveal">Smartsheet</span>
-      <span class="pill reveal">Azure DevOps</span>
-      <span class="pill reveal">ServiceNow</span>
-      <span class="pill reveal">Power BI</span>
-      <span class="pill reveal">Looker Studio</span>
-      <span class="pill reveal">Excel (Pivot, PowerQuery)</span>
-      <span class="pill reveal">SharePoint</span>
-      <span class="pill reveal">Visio</span>
-      <span class="pill reveal">Microsoft Teams</span>
-      <span class="pill reveal">Slack</span>
-      <span class="pill reveal">Generative AI Tools</span>
-    </div>
-  </div>
-</section>
-
-<!-- === CONTACT === -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-section reveal">
-      <h2>Let's Coordinate Your Next Delivery Program</h2>
-      <p>Open to Project Coordinator, PMO, and technical delivery opportunities across the Greater Toronto Area — on-site, hybrid, or remote. If your implementation program needs governance rigor and a steady cadence, let's talk.</p>
-      <div class="contact-buttons">
-        <a href="mailto:chku871@gmail.com" class="btn-contact btn-contact-primary">Send Email</a>
-        <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer" class="btn-contact">LinkedIn</a>
-        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-contact">Download Resume</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === FOOTER === -->
-<footer>
-  <p>Chaitanya Kumar Mukkollu · PMP® Certified Technical Project Coordinator · Markham, ON · <a href="mailto:chku871@gmail.com">chku871@gmail.com</a> · <a href="https://www.linkedin.com/in/chaitanya-kumar-mukkollu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-</footer>
-</main>
-
-
-<script>
-  /* === GRAVITY GRID === */
-  (function () {
-    var canvas = document.getElementById('gravity-grid');
-    if (!canvas) { console.warn('gravity-grid canvas not found'); return; }
-
-    var ctx  = canvas.getContext('2d');
-    var hero = canvas.parentElement;
-    var mouse  = { x: -9999, y: -9999 };
-    var ripple = null;
-
-    var SPACING  = 26;
-    var RADIUS   = 120;
-    var STRENGTH = 0.16;
-    var SPRING   = 0.045;
-    var DAMP     = 0.82;
-    var DOT_R    = 1.6;
-    var LINE_D   = 58;
-    var dots     = [];
-
-    function resize() {
-      var w = Math.max(hero.offsetWidth,  window.innerWidth  || 800);
-      var h = Math.max(hero.offsetHeight, 300);
-      canvas.width  = w;
-      canvas.height = h;
-      console.log('gravity-grid sized:', w, 'x', h, '| dots will be:', Math.ceil(w/SPACING) * Math.ceil(h/SPACING));
-      buildGrid();
-    }
-
-    function buildGrid() {
-      dots = [];
-      var cols = Math.ceil(canvas.width  / SPACING) + 1;
-      var rows = Math.ceil(canvas.height / SPACING) + 1;
-      var offX = (canvas.width  % SPACING) / 2;
-      var offY = (canvas.height % SPACING) / 2;
-      for (var r = 0; r < rows; r++) {
-        for (var c = 0; c < cols; c++) {
-          var ox = offX + c * SPACING;
-          var oy = offY + r * SPACING;
-          dots.push({ ox: ox, oy: oy, x: ox, y: oy, vx: 0, vy: 0 });
-        }
-      }
-    }
-
-    function startRipple() {
-      if (!canvas.width || !canvas.height) return;
-      ripple = {
-        x: canvas.width  * 0.38,
-        y: canvas.height * 0.50,
-        r: 0,
-        maxR: Math.max(canvas.width, canvas.height) * 1.1,
-        born: Date.now()
-      };
-      console.log('gravity-grid ripple started');
-    }
-
-    function tick() {
-      requestAnimationFrame(tick);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      var len = dots.length;
-      if (!len) return;
-
-      var ax = mouse.x, ay = mouse.y;
-
-      if (ax < 0 && ripple) {
-        var age = (Date.now() - ripple.born) / 1000;
-        ripple.r = age * 280;
-        if (ripple.r < ripple.maxR + 80) {
-          ax = ripple.x;
-          ay = ripple.y;
-        } else {
-          ripple = null;
-        }
+      function closeMenu() {
+        document.body.classList.remove('menu-open');
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Open navigation');
+        button.textContent = '☰';
       }
 
-      for (var i = 0; i < len; i++) {
-        var d   = dots[i];
-        var dx  = ax - d.x;
-        var dy  = ay - d.y;
-        var d2  = dx * dx + dy * dy;
+      button.addEventListener('click', function () {
+        var willOpen = !document.body.classList.contains('menu-open');
+        document.body.classList.toggle('menu-open', willOpen);
+        button.setAttribute('aria-expanded', String(willOpen));
+        button.setAttribute('aria-label', willOpen ? 'Close navigation' : 'Open navigation');
+        button.textContent = willOpen ? '×' : '☰';
+      });
 
-        if (d2 < RADIUS * RADIUS && d2 > 0) {
-          var dist  = Math.sqrt(d2);
-          var fmul  = 1;
-          if (ripple && mouse.x < 0) {
-            var fromFront = Math.abs(dist - ripple.r);
-            fmul = Math.max(0, 1 - fromFront / 90);
-          }
-          var force = (1 - dist / RADIUS) * STRENGTH * fmul;
-          d.vx += (dx / dist) * force * SPACING * 0.6;
-          d.vy += (dy / dist) * force * SPACING * 0.6;
-        }
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
 
-        d.vx += (d.ox - d.x) * SPRING;
-        d.vy += (d.oy - d.y) * SPRING;
-        d.vx *= DAMP;
-        d.vy *= DAMP;
-        d.x  += d.vx;
-        d.y  += d.vy;
-      }
-
-      /* connection lines */
-      for (var i = 0; i < len; i++) {
-        var a    = dots[i];
-        var dspA = Math.sqrt((a.x-a.ox)*(a.x-a.ox)+(a.y-a.oy)*(a.y-a.oy));
-        if (dspA < 0.8) continue;
-        for (var j = i + 1; j < len; j++) {
-          var b    = dots[j];
-          var dspB = Math.sqrt((b.x-b.ox)*(b.x-b.ox)+(b.y-b.oy)*(b.y-b.oy));
-          if (dspB < 0.8) continue;
-          var lx = b.x - a.x, ly = b.y - a.y;
-          var ld = Math.sqrt(lx*lx + ly*ly);
-          if (ld < LINE_D) {
-            var al = (1 - ld/LINE_D) * Math.min(dspA, dspB) / 5;
-            if (al > 0.02) {
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.strokeStyle = 'rgba(13,92,99,' + Math.min(al, 0.45) + ')';
-              ctx.lineWidth = 1;
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      /* dots — visible at rest (0.35 alpha) */
-      for (var i = 0; i < len; i++) {
-        var d    = dots[i];
-        var disp = Math.sqrt((d.x-d.ox)*(d.x-d.ox)+(d.y-d.oy)*(d.y-d.oy));
-        var al   = 0.35 + Math.min(disp / 9, 1) * 0.55;
-        var rv   = DOT_R + Math.min(disp / 12, 1.4);
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, rv, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(13,92,99,' + al + ')';
-        ctx.fill();
-      }
-    }
-
-    hero.addEventListener('mousemove', function (e) {
-      var rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-      ripple  = null;
-    });
-    hero.addEventListener('mouseleave', function () {
-      mouse.x = -9999; mouse.y = -9999;
-    });
-    hero.addEventListener('touchmove', function (e) {
-      var rect = canvas.getBoundingClientRect();
-      var t = e.touches[0];
-      mouse.x = t.clientX - rect.left;
-      mouse.y = t.clientY - rect.top;
-      ripple  = null;
-    }, { passive: true });
-    hero.addEventListener('touchend', function () {
-      mouse.x = -9999; mouse.y = -9999;
-    });
-
-    var ro = new ResizeObserver(function () { resize(); });
-    ro.observe(hero);
-
-    window.addEventListener('load', function () {
-      resize();
-      setTimeout(startRipple, 600);
-    });
-    resize();
-    if (canvas.width > 0) setTimeout(startRipple, 600);
-    tick();
-    console.log('gravity-grid initialised, dot count:', dots.length);
-  })();
-
-  /* === REVEAL SCROLL === */
-  (function () {
-    var reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(function (el, index) {
-      var revealOrder = index % 6;
-      el.style.setProperty("--reveal-order", String(revealOrder));
-      el.style.setProperty("--reveal-delay", (revealOrder * 70) + "ms");
-    });
-    if (!("IntersectionObserver" in window)) {
-      reveals.forEach(function (el) { el.classList.add("in-view"); });
-      return;
-    }
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && document.body.classList.contains('menu-open')) {
+          closeMenu();
+          button.focus();
         }
       });
-    }, { threshold: 0.12 });
-    reveals.forEach(function (el) { observer.observe(el); });
-  })();
-</script>
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) closeMenu();
+      });
+    })();
+  </script>
 </body>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</html>

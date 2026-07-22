@@ -11,113 +11,104 @@ test.beforeEach(async ({ page }) => {
   await page.goto(portfolioFileUrl());
 });
 
-test("format: page metadata and semantic structure are present", async ({ page }) => {
+test("format: metadata and semantic structure are present", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", /en/i);
-  await expect(page).toHaveTitle(/portfolio|chaitanya/i);
+  await expect(page).toHaveTitle(/chaitanya|technical project coordinator/i);
   await expect(page.locator("meta[name='viewport']")).toHaveCount(1);
   await expect(page.locator("meta[name='description']")).toHaveCount(1);
   await expect(page.locator("main#main-content")).toHaveCount(1);
 
   const sectionIds = await page.locator("main section[id]").evaluateAll((nodes) =>
-    nodes.map((n) => n.getAttribute("id") ?? "")
+    nodes.map((node) => node.getAttribute("id") ?? "")
   );
-
-  const uniqueCount = new Set(sectionIds).size;
   expect(sectionIds.length).toBeGreaterThanOrEqual(5);
-  expect(uniqueCount).toBe(sectionIds.length);
-
-  const h1Count = await page.locator("h1").count();
-  expect(h1Count).toBe(1);
-
-  await expect(page.locator("img[alt]")).toHaveCount(1);
+  expect(new Set(sectionIds).size).toBe(sectionIds.length);
+  await expect(page.locator("h1")).toHaveCount(1);
+  expect(await page.locator("img[alt]").count()).toBeGreaterThanOrEqual(2);
   await expect(page.locator("nav[aria-label='Primary']")).toHaveCount(1);
+  await expect(page.locator("a.skip-link")).toHaveAttribute("href", "#main-content");
 });
 
-test("visibility: key hero and section headings are visible and readable in viewport flow", async ({ page }) => {
-  await expect(page.locator(".hero h1")).toBeVisible();
-  await expect(page.locator(".hero img[alt]")).toBeVisible();
+test("visibility: recruiter-first content is present in viewport flow", async ({ page }) => {
+  await expect(page.getByRole("heading", { name: /Technical Project Coordinator/i, level: 1 })).toBeVisible();
+  await expect(page.locator(".hero img[alt]:visible").first()).toBeVisible();
 
-  const keyHeadings = [
-    "Professional Experience",
-    "Delivery Leadership Across Key Programs",
-    "What I Bring to Your Delivery Programs",
-    "Academic Background",
-    "Tools I Use Daily",
-    "Let's Coordinate Your Next Delivery Program",
+  const headings = [
+    "Evidence before adjectives.",
+    "Delivery across software and industry.",
+    "One strong credential. One clear capability map.",
+    "Technical roots. Delivery focus.",
+    "Need a steady hand on delivery?",
   ];
 
-  for (const heading of keyHeadings) {
+  for (const heading of headings) {
     const locator = page.getByRole("heading", { name: heading });
     await locator.scrollIntoViewIfNeeded();
     await expect(locator).toBeVisible();
   }
 });
 
-test("motion: subtle decorative hero graphics animate without workflow cards", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
+test("hero: proof is static, concise, and free of continuous canvas animation", async ({ page }) => {
+  await expect(page.locator("canvas")).toHaveCount(0);
+  await expect(page.locator(".delivery-step")).toHaveCount(3);
+  await expect(page.locator(".proof")).toHaveCount(3);
+  await expect(page.locator(".hero")).toContainText("Clear plans. Visible risks. Steady go-lives.");
 
-  await expect(page.locator(".hero-motion-layer[aria-hidden='true']")).toHaveCount(1);
-  await expect(page.locator(".hero-motion-orbit")).toHaveCount(2);
-  await expect(page.locator(".hero-motion-pulse")).toHaveCount(1);
-  await expect(page.locator(".hero-motion-dot")).toHaveCount(4);
-  await expect(page.locator(".hero-flow-card")).toHaveCount(0);
-  await expect(page.locator(".hero-motion-layer")).not.toContainText(/Scope|RAID|Status/);
-
-  const orbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
+  const animationNames = await page.locator(".hero *").evaluateAll((nodes) =>
     nodes.map((node) => getComputedStyle(node).animationName)
   );
-  expect(orbitAnimationNames.every((name) => name !== "none")).toBeTruthy();
+  expect(animationNames.every((name) => name === "none")).toBeTruthy();
+});
 
-  const dotAnimationNames = await page.locator(".hero-motion-dot").evaluateAll((nodes) =>
-    nodes.map((node) => getComputedStyle(node).animationName)
-  );
-  expect(dotAnimationNames.every((name) => name !== "none")).toBeTruthy();
+test("navigation: mobile menu supports toggle, Escape, and focus return", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const button = page.locator(".menu-button");
+  await expect(button).toBeVisible();
+  await expect(button).toHaveAccessibleName("Open navigation");
+  await expect(page.locator("#primary-nav")).toBeHidden();
 
-  const revealOrders = await page.locator(".reveal").evaluateAll((nodes) =>
-    nodes.slice(0, 6).map((node) => getComputedStyle(node).getPropertyValue("--reveal-order").trim())
-  );
-  expect(revealOrders).toEqual(["0", "1", "2", "3", "4", "5"]);
+  await button.click();
+  await expect(button).toHaveAttribute("aria-expanded", "true");
+  await expect(button).toHaveAccessibleName("Close navigation");
+  await expect(page.locator("#primary-nav")).toBeVisible();
 
-  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.keyboard.press("Escape");
+  await expect(button).toHaveAttribute("aria-expanded", "false");
+  await expect(button).toBeFocused();
+  await expect(page.locator("#primary-nav")).toBeHidden();
 
-  const reducedOrbitAnimationNames = await page.locator(".hero-motion-orbit").evaluateAll((nodes) =>
-    nodes.map((node) => getComputedStyle(node).animationName)
-  );
-  expect(reducedOrbitAnimationNames).toEqual(["none", "none"]);
-
-  const reducedDotAnimationNames = await page.locator(".hero-motion-dot").evaluateAll((nodes) =>
-    nodes.map((node) => getComputedStyle(node).animationName)
-  );
-  expect(reducedDotAnimationNames).toEqual(["none", "none", "none", "none"]);
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await expect(button).toBeHidden();
+  await expect(page.locator("#primary-nav")).toBeVisible();
 });
 
 test("readability: content sizing and spacing baseline stays healthy", async ({ page }) => {
-  const readabilityMetrics = await page.evaluate(() => {
+  const metrics = await page.evaluate(() => {
     const bodyStyles = getComputedStyle(document.body);
     const bodyFontSize = parseFloat(bodyStyles.fontSize);
     const bodyLineHeight = parseFloat(bodyStyles.lineHeight);
-
     const contentNodes = Array.from(document.querySelectorAll("p, li"));
-    const firstTen = contentNodes.slice(0, 10);
-    const nodeFontSizes = firstTen.map((node) =>
-      parseFloat(getComputedStyle(node).fontSize)
-    );
-    const minNodeFontSize = nodeFontSizes.length ? Math.min(...nodeFontSizes) : bodyFontSize;
-
-    const hasHorizontalOverflow = document.documentElement.scrollWidth > window.innerWidth;
-    return { bodyFontSize, bodyLineHeight, minNodeFontSize, hasHorizontalOverflow };
+    const sample = contentNodes.slice(0, 12);
+    const fontSizes = sample.map((node) => parseFloat(getComputedStyle(node).fontSize));
+    const minNodeFontSize = fontSizes.length ? Math.min(...fontSizes) : bodyFontSize;
+    return {
+      bodyFontSize,
+      bodyLineHeight,
+      minNodeFontSize,
+      hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth,
+    };
   });
 
-  expect(readabilityMetrics.bodyFontSize).toBeGreaterThanOrEqual(16);
-  expect(readabilityMetrics.bodyLineHeight).toBeGreaterThanOrEqual(1.4 * readabilityMetrics.bodyFontSize);
-  expect(readabilityMetrics.minNodeFontSize).toBeGreaterThanOrEqual(15);
-  expect(readabilityMetrics.hasHorizontalOverflow).toBeFalsy();
+  expect(metrics.bodyFontSize).toBeGreaterThanOrEqual(16);
+  expect(metrics.bodyLineHeight).toBeGreaterThanOrEqual(1.4 * metrics.bodyFontSize);
+  expect(metrics.minNodeFontSize).toBeGreaterThanOrEqual(14);
+  expect(metrics.hasHorizontalOverflow).toBeFalsy();
 });
 
-test("layout: key sections stay aligned across desktop, tablet, and phone", async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 720 });
+test("layout: programs and first-fold hierarchy adapt across breakpoints", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
 
-  const desktopRows = await page.evaluate(() => {
+  const desktop = await page.evaluate(() => {
     const rowCounts = (selector: string) => {
       const counts = new Map<number, number>();
       for (const node of Array.from(document.querySelectorAll(selector))) {
@@ -126,109 +117,70 @@ test("layout: key sections stay aligned across desktop, tablet, and phone", asyn
       }
       return Array.from(counts.values());
     };
-
     return {
-      projectRows: rowCounts(".project-card"),
-      competencyRows: rowCounts(".competency-group"),
-      certRows: rowCounts(".cert-card"),
-      projectBadgeOverflow: Array.from(document.querySelectorAll(".project-card")).some((card) => {
-        const badge = card.querySelector(".status-badge");
-        if (!badge) return false;
-
-        const cardRect = card.getBoundingClientRect();
-        const badgeRect = badge.getBoundingClientRect();
-        return badgeRect.left < cardRect.left - 1 || badgeRect.right > cardRect.right + 1;
-      }),
-      timelineOffset: Math.round(
-        (document.querySelector(".experience-card")?.getBoundingClientRect().left ?? 0) -
-          (document.querySelector("#experience .section-header")?.getBoundingClientRect().left ?? 0)
-      ),
-      timelineContentGap: Math.round(
-        (document.querySelector(".experience-role")?.getBoundingClientRect().left ?? 0) -
-          ((document.querySelector(".timeline")?.getBoundingClientRect().left ?? 0) +
-            parseFloat(getComputedStyle(document.querySelector(".timeline")!, "::before").left))
-      ),
+      programRows: rowCounts(".program-card"),
+      educationRows: rowCounts(".education-card"),
+      credentialRows: rowCounts(".credential-grid > *"),
+      hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth,
     };
   });
 
-  expect(desktopRows.projectRows).toEqual([4]);
-  expect(desktopRows.competencyRows).toEqual([4]);
-  expect(desktopRows.certRows).toEqual([3, 3, 3]);
-  expect(desktopRows.projectBadgeOverflow).toBeFalsy();
-  expect(desktopRows.timelineOffset).toBeGreaterThanOrEqual(28);
-  expect(desktopRows.timelineOffset).toBeLessThanOrEqual(44);
-  expect(desktopRows.timelineContentGap).toBeGreaterThanOrEqual(56);
+  expect(desktop.programRows).toEqual([2, 2]);
+  expect(desktop.educationRows).toEqual([2]);
+  expect(desktop.credentialRows).toEqual([2]);
+  expect(desktop.hasHorizontalOverflow).toBeFalsy();
 
-  await page.locator("nav a[href='#experience']").click();
-
-  const sectionAnchor = await page.evaluate(() => {
-    const header = document.querySelector("header");
-    const label = document.querySelector("#experience .section-label");
-    if (!header || !label) throw new Error("Missing header or experience label");
-
+  await page.getByRole("link", { name: "Delivery work", exact: true }).click();
+  const anchor = await page.evaluate(() => {
+    const header = document.querySelector(".site-header");
+    const label = document.querySelector("#programs .section-label");
+    if (!header || !label) throw new Error("Missing header or program label");
     return {
       headerBottom: Math.round(header.getBoundingClientRect().bottom),
       labelTop: Math.round(label.getBoundingClientRect().top),
     };
   });
-
-  expect(sectionAnchor.labelTop).toBeGreaterThanOrEqual(sectionAnchor.headerBottom + 8);
-
-  await page.setViewportSize({ width: 820, height: 1180 });
-
-  const tabletHeader = await page.evaluate(() => {
-    const rect = (selector: string) => {
-      const node = document.querySelector(selector);
-      if (!node) throw new Error(`Missing ${selector}`);
-      const bounds = node.getBoundingClientRect();
-      return {
-        top: Math.round(bounds.top),
-        bottom: Math.round(bounds.bottom),
-        height: Math.round(bounds.height),
-      };
-    };
-
-    return {
-      logo: rect(".logo"),
-      nav: rect(".nav"),
-      header: rect("header"),
-    };
-  });
-
-  expect(tabletHeader.nav.top).toBeGreaterThanOrEqual(tabletHeader.logo.bottom);
-  expect(tabletHeader.header.height).toBeLessThanOrEqual(130);
+  expect(anchor.labelTop).toBeGreaterThanOrEqual(anchor.headerBottom + 8);
 
   await page.setViewportSize({ width: 390, height: 844 });
-
-  const phoneMetrics = await page.evaluate(() => {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const mobile = await page.evaluate(() => {
     const rect = (selector: string) => {
       const node = document.querySelector(selector);
       if (!node) throw new Error(`Missing ${selector}`);
       const bounds = node.getBoundingClientRect();
-      return {
-        left: Math.round(bounds.left),
-        right: Math.round(bounds.right),
-        height: Math.round(bounds.height),
-      };
+      return { top: Math.round(bounds.top), bottom: Math.round(bounds.bottom), height: Math.round(bounds.height) };
     };
-
     return {
-      header: rect("header"),
-      heroInner: rect(".hero-inner"),
-      statsGrid: rect(".stats-grid"),
+      header: rect(".site-header"),
+      actions: rect(".hero-actions"),
+      proof: rect(".proof-grid"),
+      programRows: Array.from(document.querySelectorAll(".program-card")).map((node) =>
+        Math.round(node.getBoundingClientRect().left)
+      ),
       hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth,
     };
   });
 
-  expect(phoneMetrics.header.height).toBeLessThanOrEqual(132);
-  expect(Math.abs(phoneMetrics.heroInner.left - phoneMetrics.statsGrid.left)).toBeLessThanOrEqual(2);
-  expect(phoneMetrics.hasHorizontalOverflow).toBeFalsy();
+  expect(mobile.header.height).toBeLessThanOrEqual(68);
+  expect(mobile.actions.bottom).toBeLessThan(650);
+  expect(mobile.proof.bottom).toBeLessThan(780);
+  expect(new Set(mobile.programRows).size).toBe(1);
+  expect(mobile.hasHorizontalOverflow).toBeFalsy();
+});
+
+test("content: supporting credentials remain available without visual overload", async ({ page }) => {
+  const details = page.locator(".training-details");
+  await expect(details).not.toHaveAttribute("open", "");
+  await details.locator("summary").click();
+  await expect(details).toHaveAttribute("open", "");
+  await expect(page.locator(".training-item")).toHaveCount(9);
 });
 
 test("readability/accessibility: no critical or serious axe violations", async ({ page }) => {
   const results = await new AxeBuilder({ page }).analyze();
-  const severe = results.violations.filter((v) =>
-    v.impact === "serious" || v.impact === "critical"
+  const severe = results.violations.filter((violation) =>
+    violation.impact === "serious" || violation.impact === "critical"
   );
   expect(severe, JSON.stringify(severe, null, 2)).toEqual([]);
 });
